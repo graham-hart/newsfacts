@@ -4,8 +4,8 @@
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>{{ appname }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <span v-bind:key="item.name" v-for="item in items">
-        <v-btn flat>{{ item.title }}</v-btn>
+      <span :key="item.name" v-for="item in items">
+        <v-btn flat :to="item.link">{{ item.title }}</v-btn>
       </span>
     </v-toolbar>
   </div>
@@ -21,10 +21,10 @@ export default {
     return {
       drawer: false,
       items: [
-        { title: "Home" },
-        { title: "Login" },
-        { title: "Search" },
-        { title: "Support" },
+        { title: "Home", link: "home" },
+        // { title: "Login", link: "login" },
+        { title: "Search", link: "search" },
+        // { title: "Support", link: "support" },
       ],
     };
   },
@@ -42,5 +42,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  text-decoration: none !important;
 }
 </style>

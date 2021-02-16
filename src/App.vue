@@ -1,21 +1,18 @@
 <template>
   <v-app>
     <v-main>
-      <NavBar appname="test" />
-      <Home v-if="display_components.includes('Home')" />
+      <NavBar appname="Newsfacts" />
+      <router-view :key="$route.fullPath" />
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Home from "./components/Home";
 import NavBar from "./components/NavBar";
-
 export default {
   name: "App",
 
   components: {
-    Home,
     NavBar,
   },
 
