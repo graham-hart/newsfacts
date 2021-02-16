@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <NavBar appname="Newsfacts" />
-      <router-view :key="$route.fullPath" />
+      <router-view />
     </v-main>
   </v-app>
 </template>

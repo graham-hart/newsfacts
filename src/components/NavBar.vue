@@ -22,26 +22,27 @@ export default {
       drawer: false,
       items: [
         { title: "Home", link: "home" },
-        // { title: "Login", link: "login" },
         { title: "Search", link: "search" },
-        // { title: "Support", link: "support" },
       ],
     };
   },
 };
 </script>
 
-<style>
+<style scoped>
 @font-face {
   font-family: cascadia-code;
   src: url("../assets/fonts/CascadiaCode.ttf");
 }
 #app {
-  font-family: cascadia-code, Helvetica, Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  text-decoration: none !important;
+  text-decoration: none;
+}
+button {
+  font-family: cascadia-code !important;
 }
 </style>
