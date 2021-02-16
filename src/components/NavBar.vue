@@ -4,7 +4,7 @@
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title>{{ appname }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <span :key="item.name" v-for="item in items">
+      <span :key="item.link" v-for="item in items">
         <v-btn flat :to="item.link">{{ item.title }}</v-btn>
       </span>
     </v-toolbar>
