@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <v-main>
-      <NavBar appname="Newsfacts" />
+      <NavBar appname="Test" />
       <router-view />
     </v-main>
   </v-app>
@@ -17,9 +17,7 @@ export default {
   },
 
   data() {
-    return {
-      display_components: ["Home"],
-    };
+    return {};
   },
 };
 </script>

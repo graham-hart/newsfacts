@@ -19,7 +19,6 @@ export default {
   },
   data() {
     return {
-      drawer: false,
       items: [
         { title: "Home", link: "home" },
         { title: "Search", link: "search" },
