@@ -8,7 +8,7 @@
 export default {
   name: "Home",
   components: {},
-  data() {},
+  // data() {},
 };
 </script>
 

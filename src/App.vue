@@ -16,9 +16,9 @@ export default {
     NavBar,
   },
 
-  data() {
-    return {};
-  },
+  // data() {
+  //   return {};
+  // },
 };
 </script>
 <style>

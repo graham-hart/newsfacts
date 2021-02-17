@@ -8,7 +8,7 @@
 export default {
   name: "Search",
   components: {},
-  data() {},
+  // data() {},
 };
 </script>
 
