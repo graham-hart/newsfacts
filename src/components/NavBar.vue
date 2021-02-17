@@ -4,8 +4,15 @@
       <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title id="appname">{{ appname }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <span :key="item.link" v-for="item in items" class="nav-elt">
-        <router-link active-class="nav-elt-active" tag="span" :to="item.link">
+      <span>
+        <router-link
+          :key="item.link"
+          v-for="item in items"
+          class="nav-elt"
+          active-class=""
+          tag="span"
+          :to="item.link"
+        >
           {{ item.title }}
         </router-link>
       </span>
@@ -48,16 +55,13 @@ export default {
   font-family: NotoSans-Black;
 }
 .nav-elt {
-  padding: 15px;
-  cursor: pointer;
+  padding: 5px 10px;
   font-family: Roboto;
   font-size: 25px;
-  margin: 0px 10px;
-  color: #c1c1c1;
+  color: #e1e1e1;
+  cursor: pointer;
+  margin: 0px 5px;
   font-weight: bold;
-}
-.nav-elt-active {
-  color: #f1f1f1;
 }
 button {
   font-family: cascadia-code !important;
