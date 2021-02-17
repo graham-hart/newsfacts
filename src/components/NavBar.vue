@@ -5,13 +5,7 @@
       <v-toolbar-title id="appname">{{ appname }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <span :key="item.link" v-for="item in items" class="nav-elt">
-        <router-link
-          flat
-          active-class="nav-elt-active"
-          :to="item.link"
-          tag="span"
-          exact
-        >
+        <router-link active-class="nav-elt-active" tag="span" :to="item.link">
           {{ item.title }}
         </router-link>
       </span>
