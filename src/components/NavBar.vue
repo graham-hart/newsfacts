@@ -2,10 +2,18 @@
   <div id="app">
     <v-toolbar id="navbar" app color="#330066" dark>
       <v-toolbar-side-icon></v-toolbar-side-icon>
-      <v-toolbar-title>{{ appname }}</v-toolbar-title>
+      <v-toolbar-title id="appname">{{ appname }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <span :key="item.link" v-for="item in items">
-        <v-btn flat :to="{ name: item.title }">{{ item.title }}</v-btn>
+      <span :key="item.link" v-for="item in items" class="nav-elt">
+        <router-link
+          flat
+          active-class="nav-elt-active"
+          :to="item.link"
+          tag="span"
+          exact
+        >
+          {{ item.title }}
+        </router-link>
       </span>
     </v-toolbar>
   </div>
@@ -20,8 +28,8 @@ export default {
   data() {
     return {
       items: [
-        { title: "Home", link: "" },
-        { title: "Search", link: "search" },
+        { title: "Home", link: "/" },
+        { title: "Search", link: "/search" },
       ],
     };
   },
@@ -30,8 +38,8 @@ export default {
 
 <style scoped>
 @font-face {
-  font-family: cascadia-code;
-  src: url("../assets/fonts/CascadiaCode.ttf");
+  font-family: NotoSans-Black;
+  src: url("../assets/fonts/NotoSansSC-Black.otf");
 }
 #app {
   font-family: Helvetica, Arial, sans-serif;
@@ -39,7 +47,23 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  text-decoration: none;
+  text-decoration: none !important;
+}
+#appname {
+  font-size: 30px !important;
+  font-family: NotoSans-Black;
+}
+.nav-elt {
+  padding: 15px;
+  cursor: pointer;
+  font-family: Roboto;
+  font-size: 25px;
+  margin: 0px 10px;
+  color: #c1c1c1;
+  font-weight: bold;
+}
+.nav-elt-active {
+  color: #f1f1f1;
 }
 button {
   font-family: cascadia-code !important;
