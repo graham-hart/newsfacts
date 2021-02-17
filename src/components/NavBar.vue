@@ -30,7 +30,7 @@ export default {
     return {
       items: [
         { title: "Home", link: "/" },
-        { title: "Search", link: "/search" },
+        { title: "Sites", link: "/sites" },
       ],
     };
   },

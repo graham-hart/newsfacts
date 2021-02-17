@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <div id="site">
-      <h1>{{ site.name }}</h1>
-      <a :href="site.url" target="_blank">Site</a>
+      <router-link
+        class="sitepagelink"
+        tag="h1"
+        :to="`sites/${site.name.toLowerCase().replace(' ', '')}`"
+        >{{ site.name }}</router-link
+      >
       <p>Bias: {{ votes }}</p>
     </div>
   </div>
@@ -23,21 +27,18 @@ export default {
     };
   },
   mounted() {
-    axios
-      .get(`${this.db_url}/vote?newssite_id=eq.${this.site.newssite_id}`)
-      .then((r) => {
-        this.votes = r.data;
-        console.log(r);
-      });
+    this.getSiteData();
   },
-  // computed: {
-  // 	average_votes() {
-  // 		votes = {}
-  // 		for(let v of this.votes) {
-  // 			if(v.dimension)
-  // 		}
-  // 	}
-  // },
+  methods: {
+    getSiteData() {
+      axios
+        .get(`${this.db_url}/vote?newssite_id=eq.${this.site.newssite_id}`)
+        .then((r) => {
+          this.votes = r.data;
+          console.log(r);
+        });
+    },
+  },
 };
 </script>
 
@@ -52,5 +53,8 @@ export default {
   background-color: #ff0000;
   width: 40%;
   margin: 100px auto;
+}
+.sitepagelink {
+  cursor: pointer;
 }
 </style>
