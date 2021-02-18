@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>{{ data.newssite.name }}</h1>
+    <h1 class="page-title">{{ data.newssite.name }}</h1>
   </div>
 </template>
 

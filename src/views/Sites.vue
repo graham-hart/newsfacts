@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Sites</h1>
+    <h1 class="page-title">Sites</h1>
     <SiteDiv v-for="site in site_list" :key="site.site_id" :site="site" />
   </div>
 </template>
@@ -33,16 +33,4 @@ export default {
 </script>
 
 <style scoped>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-.searchbar {
-  padding: 10px;
-  border: 1px solid black;
-  margin-top: 20px;
-  width: 25%;
-}
 </style>

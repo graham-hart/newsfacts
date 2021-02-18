@@ -42,19 +42,5 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-#site {
-  background-color: #ff0000;
-  width: 40%;
-  margin: 100px auto;
-}
-.sitepagelink {
-  cursor: pointer;
-}
+<style scoped>
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Home</h1>
+    <h1 class="page-title">Home</h1>
   </div>
 </template>
 
@@ -12,11 +12,5 @@ export default {
 };
 </script>
 
-<style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<style scoped>
 </style>
