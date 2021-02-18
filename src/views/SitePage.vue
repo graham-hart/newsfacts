@@ -39,5 +39,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+p.rating {
+  background-color: #ff0000;
+}
 </style>
