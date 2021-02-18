@@ -5,7 +5,7 @@
         class="sitepagelink"
         tag="h1"
         :to="`sites/${site.name.toLowerCase().replace(' ', '')}`"
-        >{{ site.name }}</router-link
+        >{{ site != null ? site.name : "Loading..." }}</router-link
       >
       <p>Bias: {{ votes }}</p>
     </div>
@@ -18,7 +18,7 @@ export default {
   name: "SiteDiv",
   components: {},
   props: {
-    site: Map,
+    site: Object,
   },
   data() {
     return {
@@ -26,16 +26,15 @@ export default {
       db_url: "http://localhost:3000",
     };
   },
-  mounted() {
-    this.getSiteData();
+  async mounted() {
+    await this.getSiteData();
   },
   methods: {
-    getSiteData() {
+    async getSiteData() {
       axios
         .get(`${this.db_url}/vote?newssite_id=eq.${this.site.newssite_id}`)
         .then((r) => {
           this.votes = r.data;
-          console.log(r);
         });
     },
   },

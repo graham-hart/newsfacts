@@ -1,6 +1,15 @@
 <template>
   <div id="app">
-    <h1 class="page-title">{{ data.newssite.name }}</h1>
+    <h1 class="page-title">
+      {{ data.newssite != null ? data.newssite.name : "Loading" }}
+    </h1>
+    <p
+      v-for="dimension in data.dimension"
+      :key="dimension.dimension_id"
+      class="rating"
+    >
+      {{ dimension.name }}:
+    </p>
   </div>
 </template>
 
@@ -10,6 +19,7 @@ export default {
   name: "SitePage",
   data() {
     return {
+      avg_votes: null,
       data: {
         newssite: null,
         vote: null,
@@ -30,11 +40,31 @@ export default {
         this.data[endpoint] = data;
       });
     },
+    getAverageVote() {
+      let sorted_votes = {};
+      let averages = {};
+      for (let d of this.data.dimension) {
+        sorted_votes[d.dimension_id] = [];
+      }
+      for (let v of this.data.vote) {
+        sorted_votes[v.dimension_id].push(v);
+      }
+      for (let id in this.sorted_votes) {
+        console.log(id);
+        // const t = sorted_votes[id].reduce((acc, c) => acc + c, 0);
+        // averages[id] = t / sorted_votes[id].length;
+      }
+      this.avg_votes = averages;
+    },
   },
   async mounted() {
     await this.getData("newssite", `route=eq.${this.$route.params.sitename}`);
-    this.getData("vote", `newssite_id=eq.${this.data.newssite.newssite_id}`);
-    this.getData("dimension", "");
+    await this.getData(
+      "vote",
+      `newssite_id=eq.${this.data.newssite.newssite_id}`
+    );
+    await this.getData("dimension", "");
+    this.getAverageVote();
   },
 };
 </script>
