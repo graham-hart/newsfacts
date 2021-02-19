@@ -9,13 +9,16 @@
 
 <script>
 import NavBar from "./components/NavBar";
+import api from "./scripts/data.js";
 export default {
   name: "App",
 
   components: {
     NavBar,
   },
-
+  async created() {
+    await api.refresh_data();
+  },
   // data() {
   //   return {};
   // },

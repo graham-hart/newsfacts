@@ -1,33 +1,13 @@
 <template>
-  <div id="app">
-    <h1 class="page-title">Sites</h1>
-    <SiteDiv v-for="site in site_list" :key="site.site_id" :site="site" />
-  </div>
+  <div id="app"></div>
 </template>
 
 <script>
-import axios from "axios";
-import SiteDiv from "../components/SiteDiv.vue";
+// import SiteDiv from "../components/SiteDiv.vue";
 export default {
   name: "Sites",
   components: {
-    SiteDiv,
-  },
-  data() {
-    return {
-      site_list: null,
-      db_url: "http://localhost:3000",
-    };
-  },
-  mounted() {
-    this.getSites();
-  },
-  methods: {
-    getSites() {
-      axios.get(`${this.db_url}/newssite`).then((r) => {
-        this.site_list = r.data;
-      });
-    },
+    // SiteDiv,
   },
 };
 </script>
