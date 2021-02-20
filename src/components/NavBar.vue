@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
+  <div id="bar">
     <v-toolbar id="navbar" app color="#330066" dark>
-      <v-toolbar-side-icon></v-toolbar-side-icon>
       <v-toolbar-title id="appname">{{ appname }}</v-toolbar-title>
       <v-spacer></v-spacer>
       <span>

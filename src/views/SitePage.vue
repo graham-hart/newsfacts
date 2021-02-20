@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <!-- <h1 class="page-title">
+    <h1 class="page-title">
       {{ site != null ? site.name : "Loading" }}
-    </h1> -->
+    </h1>
   </div>
 </template>
 
@@ -17,12 +17,15 @@ export default {
     };
   },
   mounted() {
-    this.votes = api.get_data("vote");
     this.site = api.get_data(
       "newssite",
-      (s) => s.route == this.$route.params.site
+      (s) => s.route == this.$route.params.sitename
+    )[0];
+    this.votes = api.get_data(
+      "vote",
+      (v) => v.newssite_id == this.site.newssite_id
     );
-    setTimeout(console.log, 3000, [this.site]);
+    console.log(this.votes);
   },
 };
 </script>

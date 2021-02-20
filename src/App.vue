@@ -16,8 +16,8 @@ export default {
   components: {
     NavBar,
   },
-  async created() {
-    await api.refresh_data();
+  mounted() {
+    api.refresh_data();
   },
   // data() {
   //   return {};
