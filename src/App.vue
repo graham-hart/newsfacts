@@ -9,7 +9,6 @@
 
 <script>
 import NavBar from "./components/NavBar";
-import api from "./scripts/data.js";
 export default {
   name: "App",
 
@@ -17,11 +16,8 @@ export default {
     NavBar,
   },
   mounted() {
-    api.refresh_data();
+    this.$store.commit("refreshData");
   },
-  // data() {
-  //   return {};
-  // },
 };
 </script>
 <style>

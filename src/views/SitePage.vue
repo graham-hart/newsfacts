@@ -7,26 +7,8 @@
 </template>
 
 <script>
-import api from "../scripts/data.js";
 export default {
   name: "SitePage",
-  data() {
-    return {
-      votes: null,
-      site: null,
-    };
-  },
-  mounted() {
-    this.site = api.get_data(
-      "newssite",
-      (s) => s.route == this.$route.params.sitename
-    )[0];
-    this.votes = api.get_data(
-      "vote",
-      (v) => v.newssite_id == this.site.newssite_id
-    );
-    console.log(this.votes);
-  },
 };
 </script>
 

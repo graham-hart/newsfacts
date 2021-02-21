@@ -1,21 +1,29 @@
 <template>
   <div id="app">
-    <SiteDiv v-for="site in sites" :key="site.newssite_id" :newssite="site" />
+    <p @click="refreshData()">
+      {{ sites }}
+    </p>
   </div>
 </template>
 
 <script>
-import SiteDiv from "../components/SiteDiv.vue";
-import api from "../scripts/data.js";
 export default {
   name: "Sites",
-  components: {
-    SiteDiv,
-  },
-  data() {
-    return {
-      sites: api.get_data("newssite"),
-    };
+  components: {},
+  methods: {},
+  computed: {
+    sites() {
+      return this.$store.state.newssite;
+    },
+    votes() {
+      return this.$store.state.vote;
+    },
+    dimensions() {
+      return this.$store.state.dimension;
+    },
+    people() {
+      return this.$store.state.person;
+    },
   },
 };
 </script>
