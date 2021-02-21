@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <h1 class="page-title">
-      {{ site != null ? site.name : "Loading" }}
+    <h1 class="page-title" :key="site.name">
+      {{ site != null ? site.name : "ERROR: SITE NOT FOUND" }}
     </h1>
   </div>
 </template>
@@ -9,6 +9,13 @@
 <script>
 export default {
   name: "SitePage",
+  computed: {
+    site() {
+      return this.$store.state.newssite.filter(
+        (r) => r.route == this.$route.params.site
+      )[0];
+    },
+  },
 };
 </script>
 

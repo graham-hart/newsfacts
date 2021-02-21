@@ -6,10 +6,10 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		dimension: null,
-		newssite: null,
-		vote: null,
-		person: null,
+		dimension: [],
+		newssite: [],
+		vote: [],
+		person: [],
 	},
 	mutations: {
 		refreshData() {

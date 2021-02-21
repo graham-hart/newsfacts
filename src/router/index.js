@@ -21,7 +21,7 @@ export default new Router({
 			component: Sites
 		},
 		{
-			path: "/sites/:sitename",
+			path: "/sites/:site",
 			name: "Site",
 			component: SitePage
 		}

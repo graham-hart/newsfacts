@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <NavBar appname="Newsfacts" />
-      <router-view />
+      <router-view id="page" />
     </v-main>
   </v-app>
 </template>
@@ -15,7 +15,7 @@ export default {
   components: {
     NavBar,
   },
-  mounted() {
+  created() {
     this.$store.commit("refreshData");
   },
 };
@@ -32,24 +32,11 @@ export default {
 h1 {
   font-family: NotoSans-Black !important;
 }
-div#site {
-  background-color: #ff0000;
-  width: 40%;
-  margin: 100px auto;
-}
-#site p {
-  font-family: Cascadia-code;
-}
-.sitepagelink {
-  cursor: pointer;
-}
-.searchbar {
-  padding: 10px;
-  border: 1px solid black;
-  margin-top: 20px;
-  width: 25%;
-}
 .page-title {
   text-align: center;
+}
+#page {
+  background: linear-gradient(160deg, #f4f4f4 40%, #fafafa 40%);
+  height: 100%;
 }
 </style>
