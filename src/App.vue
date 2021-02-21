@@ -39,4 +39,7 @@ h1 {
   background: linear-gradient(160deg, #f4f4f4 40%, #fafafa 40%);
   height: 100%;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 </style>
