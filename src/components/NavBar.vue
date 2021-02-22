@@ -1,7 +1,7 @@
 <template>
   <div id="bar">
     <v-toolbar id="navbar" app color="#7d4bde" dark>
-      <v-toolbar-title id="appname">{{ appname }}</v-toolbar-title>
+      <router-link to="/" id="appname">{{ appname }}</router-link>
       <v-spacer></v-spacer>
       <span>
         <router-link
@@ -40,6 +40,8 @@ export default {
 #appname {
   font-size: 30px !important;
   font-family: NotoSans-Black;
+  text-decoration: none;
+  color: #fafafa;
 }
 .nav-elt {
   padding: 5px 10px;

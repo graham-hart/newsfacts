@@ -39,22 +39,23 @@ export default {
 
 <style scoped>
 * {
-  --site-width: 350px;
+  --site-width: 550px;
   --site-height: auto;
-  --site-expand-change: 1.5%;
+  --site-expand-change: 40px;
 }
 .site {
   width: var(--site-width);
   height: var(--site-height);
   background-color: #83bbfd;
-  margin: 30px auto;
   padding: 20px;
   box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.35);
   cursor: pointer;
+  margin: 30px auto;
+  transition: width 0.15s ease, box-shadow 0.4s ease, background-color 0.2s ease;
 }
 .site:hover {
   width: calc(var(--site-width) + var(--site-expand-change));
-  background-color: #8dabec;
+  background-color: #8dabecaa;
   box-shadow: 0px 5px 12px -5px rgba(0, 0, 0, 0.76);
 }
 </style>

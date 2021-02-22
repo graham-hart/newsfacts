@@ -1,8 +1,10 @@
 <template>
   <v-app>
     <v-main>
-      <NavBar appname="Newsfacts" />
-      <router-view id="page" />
+      <div id="container">
+        <NavBar appname="Newsfacts" id="navbar" />
+        <router-view id="page" />
+      </div>
     </v-main>
   </v-app>
 </template>
@@ -21,6 +23,18 @@ export default {
 };
 </script>
 <style>
+body,
+html {
+  overflow: overlay;
+  cursor: auto;
+  width: 100%;
+}
+#container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-flow: column;
+}
 @font-face {
   font-family: NotoSans-Black;
   src: url("./assets/fonts/NotoSansSC-Black.otf");
@@ -35,11 +49,18 @@ h1 {
 .page-title {
   text-align: center;
 }
+#navbar {
+  flex: 0 1 auto;
+}
 #page {
-  background: linear-gradient(160deg, #f4f4f4 40%, #fafafa 40%);
-  height: 100%;
+  background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
+  flex: 1 1 auto;
 }
 ::-webkit-scrollbar {
-  display: none;
+  background-color: #fafafa11;
+  width: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #a1a1a1aa;
 }
 </style>

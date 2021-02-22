@@ -1,5 +1,5 @@
 <template>
-  <v-btn flat id="refresh" color="#330055" @click="refreshData">Refresh </v-btn>
+  <v-btn id="refresh" color="#330055" @click="refreshData">Refresh </v-btn>
 </template>
 <script>
 export default {
