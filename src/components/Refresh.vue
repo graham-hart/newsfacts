@@ -17,6 +17,6 @@ export default {
   right: 20px;
   bottom: 20px;
   color: #fafafa;
-  font-family: cascadia-code;
+  font-family: monospace;
 }
 </style>

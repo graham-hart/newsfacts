@@ -2,14 +2,16 @@
   <div id="app">
     <h1 class="page-title">Sites</h1>
     <refresh id="refresh" />
-    <router-link
-      tag="div"
-      class="site"
-      :key="site.name"
-      v-for="site in sites"
-      :to="`/sites/${site.route}`"
-      ><h1>{{ site.name }}</h1></router-link
-    >
+    <div id="sites" class="flex-column">
+      <router-link
+        tag="div"
+        class="site"
+        :key="site.name"
+        v-for="site in sites"
+        :to="`/sites/${site.route}`"
+        ><h1>{{ site.name }}</h1></router-link
+      >
+    </div>
   </div>
 </template>
 
@@ -50,12 +52,17 @@ export default {
   padding: 20px;
   box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.35);
   cursor: pointer;
-  margin: 30px auto;
+  margin: 20px auto;
   transition: width 0.15s ease, box-shadow 0.4s ease, background-color 0.2s ease;
 }
 .site:hover {
   width: calc(var(--site-width) + var(--site-expand-change));
   background-color: #8dabecaa;
   box-shadow: 0px 5px 12px -5px rgba(0, 0, 0, 0.76);
+}
+#sites {
+  display: flex;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 </style>

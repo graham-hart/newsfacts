@@ -39,15 +39,10 @@ html {
   font-family: NotoSans-Black;
   src: url("./assets/fonts/NotoSansSC-Black.otf");
 }
-@font-face {
-  font-family: cascadia-code;
-  src: url("./assets/fonts/CascadiaCode.ttf");
-}
-h1 {
-  font-family: NotoSans-Black !important;
-}
 .page-title {
   text-align: center;
+  margin-top: 20px;
+  font-family: NotoSans-Black;
 }
 #navbar {
   flex: 0 1 auto;

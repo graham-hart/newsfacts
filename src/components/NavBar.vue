@@ -1,6 +1,6 @@
 <template>
   <div id="bar">
-    <v-toolbar id="navbar" app color="#7d4bde" dark>
+    <v-toolbar id="navbar" app color="#5327a8" dark>
       <router-link to="/" id="appname">{{ appname }}</router-link>
       <v-spacer></v-spacer>
       <span>
@@ -45,7 +45,7 @@ export default {
 }
 .nav-elt {
   padding: 5px 10px;
-  font-family: cascadia-code;
+  font-family: NotoSans-Black;
   font-size: 25px;
   color: #e1e1e1;
   cursor: pointer;
