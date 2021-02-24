@@ -12,10 +12,18 @@ export default new Vuex.Store({
 		person: [],
 	},
 	mutations: {
-		refreshData() {
+		refreshData(state) {
 			for (let table of ["dimension", "newssite", "vote", "person"]) {
-				axios.get(`http://localhost:3000/${table}`).then(r => { this.state[table] = r.data; });
+				axios.get(`http://localhost:3000/${table}`).then(r => { state[table] = r.data; });
 			}
+		},
+		createUser(state, email) {
+			axios.post(`http://localhost:3000/person`, { email_address: email }).then((r) => {
+				for (let table of ["dimension", "newssite", "vote", "person"]) {
+					axios.get(`http://localhost:3000/${table}`).then(r => { state[table] = r.data; });
+				}
+				console.log(r);
+			});
 		}
 	},
 });

@@ -1,9 +1,10 @@
 <template>
   <div id="app">
     <div id="head">
-      <h1 class="page-title" :key="site.id">
+      <h1 class="site-title" :key="site.id">
         {{ site != null ? site.name : "ERROR: SITE NOT FOUND" }}
       </h1>
+      <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
     </div>
     <div id="body" class="flex-row">
       <div id="ratings" class="flex-column">
@@ -22,6 +23,15 @@
             votes
           </span>
           <span v-else><br />No votes</span>
+          <label :for="`${d.name}slider`">{{ d.name }}</label>
+          <input
+            type="range"
+            :min="d.range_min"
+            :max="d.range_max"
+            value="0"
+            step="1"
+            :name="`${d.name}slider`"
+          />
         </div>
       </div>
     </div>
@@ -78,7 +88,7 @@ export default {
   min-height: 90%;
   flex-grow: 3;
   min-width: 20%;
-  padding: 40px 100px;
+  height: 500px;
 }
 .dimension {
   margin-top: 30px;
@@ -86,11 +96,27 @@ export default {
   width: 200px;
   padding: 20px;
   border-radius: 5px;
+  flex-grow: 1;
   border: 5px solid #afafaf;
 }
 #body {
   margin-top: 50px;
   display: flex !important;
   justify-content: start;
+  margin-left: 50px;
+}
+#head {
+  margin-top: 40px;
+  justify-content: start;
+  align-items: center;
+  margin-left: 50px;
+}
+.site-title {
+  text-align: left;
+  font-family: NotoSans-Black;
+}
+a {
+  font-size: 25px;
+  font-weight: 450 !important;
 }
 </style>
