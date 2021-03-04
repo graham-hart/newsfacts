@@ -35,7 +35,9 @@
               :name="`${d.name}slider`"
               @change="voteChange()"
             />
-            <span :key="setUserVotes()[d.name]"> {{ userVotes[d.name] }}</span>
+            <h3 class="ratelabel" :key="setUserVotes()[d.name]">
+              {{ userVotes[d.name] }}
+            </h3>
           </span>
         </div>
       </div>
@@ -138,7 +140,8 @@ export default {
 
 <style scoped>
 .rate {
-  width: 50px;
+  width: 100%;
+  margin-top: 20px;
   /* padding-top: 20px; */
 }
 #ratings {
@@ -154,23 +157,25 @@ export default {
 .dimension {
   margin-top: 30px;
   background-color: white;
-  width: 200px;
+  /* width: 200px; */
   padding: 20px;
   border-radius: 5px;
   flex-grow: 1;
   border: 5px solid #afafaf;
 }
 #body {
-  margin-top: 50px;
+  margin: 50px 50px;
   display: flex !important;
   justify-content: start;
-  margin-left: 50px;
 }
 #head {
   margin-top: 40px;
   justify-content: start;
   align-items: center;
   margin-left: 50px;
+}
+.ratelabel {
+  text-align: center;
 }
 .site-title {
   text-align: left;
