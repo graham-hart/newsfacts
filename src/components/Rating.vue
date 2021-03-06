@@ -9,6 +9,7 @@
         step="1"
         :min="dimension.range_min"
         :max="dimension.range_max"
+        @change="voteChanged()"
       />
       <h2 id="votedisplay">{{ vote }}</h2>
     </span>
@@ -18,7 +19,7 @@
 export default {
   name: "",
   data() {
-    return { vote: 0, voteSet: false };
+    return { vote: 0, voteSet: false, changed: false };
   },
   mounted() {
     this.setUserVote();
@@ -28,15 +29,20 @@ export default {
     site: Object,
   },
   methods: {
+    voteChanged() {
+      this.voteSet = true;
+    },
     setUserVote() {
-      let v = this.getUserVote;
-      if (v != null) {
-        this.voteSet = true;
-        this.vote = v;
-      } else {
-        this.vote = 0;
+      if (!this.voteSet) {
+        let v = this.getUserVote;
+        if (v != null) {
+          this.voteSet = true;
+          this.vote = v;
+        } else {
+          this.vote = 0;
+        }
+        return this.vote;
       }
-      return this.vote;
     },
   },
   computed: {
@@ -52,7 +58,6 @@ export default {
       } else {
         v = v.score;
       }
-      console.log(v);
       return v;
     },
   },
