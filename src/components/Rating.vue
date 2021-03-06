@@ -1,14 +1,28 @@
 <template>
   <div id="app">
-    <h2>{{ dimension.name }}</h2>
+    <h2>{{ category.name }}</h2>
+    <div v-if="votes.length > 0" id="avgVotes">
+      <p class="catText">
+        <br />
+        <b>{{ avgVotes }}</b>
+        out of <b>{{ votes.length }}</b> votes
+      </p>
+    </div>
+    <div v-else id="avgVotes">
+      <p class="catText">
+        <br />
+        This category doesn't have any votes. <br />Be the first person to vote!
+      </p>
+    </div>
+
     <span :key="setUserVote()">
       <input
         type="range"
         id="vote"
         v-model="vote"
         step="1"
-        :min="dimension.range_min"
-        :max="dimension.range_max"
+        :min="category.range_min"
+        :max="category.range_max"
         @change="voteChanged()"
       />
       <h2 id="votedisplay">{{ vote }}</h2>
@@ -27,7 +41,7 @@ export default {
     this.setUserVote();
   },
   props: {
-    dimension: Object,
+    category: Object,
     site: Object,
   },
   methods: {
@@ -48,40 +62,42 @@ export default {
       }
     },
     submitVote() {
-      let v = this.$store.state.vote.filter(
+      let v = this.votes.filter(
         (v) =>
           v.newssite_id == this.site.newssite_id &&
-          v.dimension_id == this.dimension.dimension_id &&
+          v.category_id == this.category.category_id &&
           v.person_id == this.user.person_id
       )[0];
       try {
-        api.patch(`vote?vote_id=eq.${v.vote_id}`, { score: this.vote });
-        console.log(`PATCH Vote ${this.vote} ${this.dimension.name}`);
+        api.patch(this.$store, `vote?vote_id=eq.${v.vote_id}`, {
+          score: this.vote,
+        });
       } catch (e) {
-        console.log(e);
-        try {
-          api.post(`vote`, {
-            score: this.vote,
-            newssite_id: this.site.newssite_id,
-            dimension_id: this.dimension.dimension_id,
-            person_id: this.user.person_id,
-          });
-          console.log(`POST Vote ${this.vote} ${this.dimension.name}`);
-        } catch (e) {
-          console.log(e);
-        }
+        api.post(this.$store, `vote`, {
+          score: this.vote,
+          newssite_id: this.site.newssite_id,
+          category_id: this.category.category_id,
+          person_id: this.user.person_id,
+        });
       }
       this.$store.commit("refreshData");
     },
   },
   computed: {
+    votes() {
+      return this.$store.state.vote.filter(
+        (v) =>
+          v.newssite_id == this.site.newssite_id &&
+          v.category_id == this.category.category_id
+      );
+    },
     user() {
       return this.$store.state.user;
     },
     getUserVote() {
-      let v = this.$store.state.vote.filter(
+      let v = this.votes.filter(
         (v) =>
-          v.dimension_id == this.dimension.dimension_id &&
+          v.category_id == this.category.category_id &&
           v.newssite_id == this.site.newssite_id &&
           v.person_id == this.user.person_id
       )[0];
@@ -91,6 +107,15 @@ export default {
         v = v.score;
       }
       return v;
+    },
+    avgVotes() {
+      let sum = 0;
+      let num = 0;
+      for (let v of this.votes) {
+        sum++;
+        num += v.score;
+      }
+      return num / sum;
     },
   },
 };
@@ -124,5 +149,10 @@ h2 {
   color: white;
   background-color: #5327a8;
   box-shadow: 1px 3px 2px #000000aa;
+}
+.catText {
+  font-weight: 400;
+  font-size: 20px;
+  text-align: center;
 }
 </style>

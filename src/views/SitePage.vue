@@ -10,10 +10,10 @@
       <div id="ratings" class="flex-column">
         <h2>Ratings:</h2>
         <rating
-          :dimension="dimension"
+          :category="category"
           :site="site"
-          v-for="dimension in dimensions"
-          :key="dimension.name"
+          v-for="category in categories"
+          :key="category.name"
         />
       </div>
     </div>
@@ -33,8 +33,8 @@ export default {
         (r) => r.route == this.$route.params.site
       )[0];
     },
-    dimensions() {
-      return this.$store.state.dimension;
+    categories() {
+      return this.$store.state.category;
     },
   },
 };
@@ -54,7 +54,7 @@ export default {
   max-width: 100%;
   height: 500px;
 }
-.dimension {
+.category {
   margin-top: 30px;
   background-color: white;
   /* width: 200px; */

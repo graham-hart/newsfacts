@@ -29,8 +29,8 @@ export default {
     votes() {
       return this.$store.state.vote;
     },
-    dimensions() {
-      return this.$store.state.dimension;
+    categories() {
+      return this.$store.state.category;
     },
     people() {
       return this.$store.state.person;

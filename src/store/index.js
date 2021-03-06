@@ -6,7 +6,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
 	state: {
-		dimension: [],
+		category: [],
 		newssite: [],
 		vote: [],
 		person: [],
@@ -14,7 +14,7 @@ export default new Vuex.Store({
 	},
 	mutations: {
 		refreshData(state) {
-			for (let table of ["dimension", "newssite", "vote", "person"]) {
+			for (let table of ["category", "newssite", "vote", "person"]) {
 				api.get(`${table}`).then(r => { state[table] = r.data; });
 			}
 		},
