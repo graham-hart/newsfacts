@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import axios from "axios";
+import api from '@/scripts/api.js';
 
 Vue.use(Vuex);
 
@@ -15,7 +15,7 @@ export default new Vuex.Store({
 	mutations: {
 		refreshData(state) {
 			for (let table of ["dimension", "newssite", "vote", "person"]) {
-				axios.get(`http://localhost:3000/${table}`).then(r => { state[table] = r.data; });
+				api.get(`${table}`).then(r => { state[table] = r.data; });
 			}
 		},
 	},

@@ -23,7 +23,7 @@
 
 <script>
 import Refresh from "../components/Refresh.vue";
-import Rating from "..//components/Rating.vue";
+import Rating from "../components/Rating.vue";
 export default {
   components: { Refresh, Rating },
   name: "SitePage",
@@ -47,13 +47,11 @@ export default {
   /* padding-top: 20px; */
 }
 #ratings {
-  min-width: 25%;
   display: flex;
   justify-content: space-between;
-  /* align-items: center; */
   min-height: 90%;
-  flex-grow: 3;
-  min-width: 20%;
+  flex-grow: 1;
+  max-width: 100%;
   height: 500px;
 }
 .dimension {
