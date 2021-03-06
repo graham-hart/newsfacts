@@ -27,7 +27,6 @@ export default {
   },
   methods: {
     login() {
-      console.log(this.email, this.id);
       this.$store.state.user = {
         person_id: this.id,
       };

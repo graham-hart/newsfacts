@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <div id="container">
-        <NavBar :appname="`Newsfacts`" id="navbar" />
+        <NavBar :appname="`Newsfacts ${user.person_id}`" id="navbar" />
         <router-view id="page" />
       </div>
     </v-main>
