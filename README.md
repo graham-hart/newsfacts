@@ -19,3 +19,4 @@ However, because the backend is not currently online, this will not work unless 
 ## Features:
 - Voting
 - Site Display
+- Anonymous User
