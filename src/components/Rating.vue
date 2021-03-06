@@ -2,14 +2,14 @@
   <div id="app">
     <h2>{{ category.name }}</h2>
     <div v-if="votes.length > 0" id="avgVotes">
-      <p class="catText">
+      <p class="catText text">
         <br />
         <b>{{ avgVotes }}</b>
         out of <b>{{ votes.length }}</b> votes
       </p>
     </div>
     <div v-else id="avgVotes">
-      <p class="catText">
+      <p class="catText text">
         <br />
         This category doesn't have any votes. <br />Be the first person to vote!
       </p>
@@ -24,9 +24,11 @@
         :min="category.range_min"
         :max="category.range_max"
         @change="voteChanged()"
+        :disabled="!isUser"
       />
-      <h2 id="votedisplay">{{ vote }}</h2>
-      <button @click="submitVote()" id="voteSubmit">Vote</button>
+      <h2 id="votedisplay" v-if="isUser">{{ vote }}</h2>
+      <span v-else class="text"><p>Please log in to vote!</p></span>
+      <button v-if="isUser" @click="submitVote()" id="voteSubmit">Vote</button>
     </span>
   </div>
 </template>
@@ -84,6 +86,9 @@ export default {
     },
   },
   computed: {
+    isUser() {
+      return this.user.person_id != 1;
+    },
     votes() {
       return this.$store.state.vote.filter(
         (v) =>
@@ -152,6 +157,8 @@ h2 {
 }
 .catText {
   font-weight: 400;
+}
+.text {
   font-size: 20px;
   text-align: center;
 }

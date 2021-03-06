@@ -15,3 +15,7 @@ However, because the backend is not currently online, this will not work unless 
 - Searching
 - Graph Votes
 - Update Styling
+
+## Features:
+- Voting
+- Site Display
