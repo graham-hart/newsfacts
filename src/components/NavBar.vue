@@ -30,6 +30,7 @@ export default {
       items: [
         { title: "Home", link: "/" },
         { title: "Sites", link: "/sites" },
+        { title: "Login", link: "/login" },
       ],
     };
   },

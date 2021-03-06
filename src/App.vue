@@ -2,7 +2,7 @@
   <v-app>
     <v-main>
       <div id="container">
-        <NavBar appname="Newsfacts" id="navbar" />
+        <NavBar :appname="`Newsfacts`" id="navbar" />
         <router-view id="page" />
       </div>
     </v-main>
@@ -19,6 +19,11 @@ export default {
   },
   created() {
     this.$store.commit("refreshData");
+  },
+  computed: {
+    user() {
+      return this.$store.state.user;
+    },
   },
 };
 </script>

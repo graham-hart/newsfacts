@@ -1,8 +1,18 @@
 <template>
   <div id="app">
-    <span id="login" :v-if="getEmail() == null">
-      <input name="email" type="text" placeholder="Email..." v-model="email" />
-      <button @click="setEmail()">Submit</button>
+    <span>
+      <select id="login" name="id" v-model="id">
+        <option disabled value="">PLEASE SELECT A USER</option>
+        <option
+          v-for="user in users"
+          :key="user.username"
+          :value="user.person_id"
+        >
+          {{ user.person_id }} - {{ user.username }}
+        </option>
+      </select>
+      <br />
+      <button @click="login()">Submit</button>
     </span>
   </div>
 </template>
@@ -12,20 +22,31 @@ export default {
   name: "Login",
   data() {
     return {
-      email: null,
+      id: "",
     };
   },
   methods: {
-    getEmail() {
-      return localStorage.getItem("email");
+    login() {
+      console.log(this.email, this.id);
+      this.$store.state.user = {
+        person_id: this.id,
+      };
     },
-    setEmail() {
-      localStorage.setItem("email", this.email);
-      this.$store.commit("createUser", this.email);
+  },
+  computed: {
+    users() {
+      return this.$store.state.person;
     },
   },
 };
 </script>
 
 <style scoped>
+#login {
+  /* width: 100px; */
+  color: black;
+}
+option {
+  color: black;
+}
 </style>
