@@ -1,24 +1,4 @@
 # newsfacts
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Known Bugs:
+The vote after making a new vote (a vote made with POST as opposed to PATCH) will throw a Conflict error, and will try to POST instead of PATCH. (Rating.vue submitVote())
