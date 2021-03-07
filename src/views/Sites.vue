@@ -1,17 +1,24 @@
 <template>
   <div id="app">
     <h1 class="page-title">Sites</h1>
-    <refresh id="refresh" />
+    <input
+      type="text"
+      v-model="searchVal"
+      id="searchInput"
+      @change="search()"
+    />
     <div id="sites" class="flex-column">
-      <router-link
-        tag="div"
-        class="site"
-        :key="site.name"
-        v-for="site in sites"
-        :to="`/sites/${site.route}`"
-        ><h1>{{ site.name }}</h1></router-link
+      <span v-for="site in sites" :key="site.name">
+        <router-link
+          tag="div"
+          class="site"
+          v-if="site.name.toLowerCase().includes(searchVal.toLowerCase())"
+          :to="`/sites/${site.route}`"
+          ><h1>{{ site.name }}</h1></router-link
+        ></span
       >
     </div>
+    <refresh id="refresh" />
   </div>
 </template>
 
@@ -21,6 +28,9 @@ export default {
   name: "Sites",
   components: {
     Refresh,
+  },
+  data() {
+    return { searchVal: "", shownSites: this.sites };
   },
   computed: {
     sites() {
@@ -41,7 +51,7 @@ export default {
 
 <style scoped>
 * {
-  --site-width: 550px;
+  --site-width: 45%;
   --site-height: auto;
   --site-expand-change: 40px;
 }
@@ -64,5 +74,19 @@ export default {
   display: flex;
   margin-top: 50px;
   margin-bottom: 50px;
+}
+#searchInput {
+  border: 2px solid grey;
+  color: grey;
+  padding: 20px;
+  font-size: 25px;
+  width: 50%;
+  height: 80px;
+  margin: 50px auto;
+  display: block;
+  border-radius: 5px;
+}
+#searchInput:focus {
+  outline: none;
 }
 </style>
