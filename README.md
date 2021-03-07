@@ -12,7 +12,7 @@ However, because the backend is not currently online, this will not work unless 
 
 ## TODO:
 - Auth0
-- Searching
+- Search Filters (Bias, ETC)
 - Graph Votes
 - Update Styling
 
@@ -20,3 +20,4 @@ However, because the backend is not currently online, this will not work unless 
 - Voting
 - Site Display
 - Anonymous User
+- Searching
