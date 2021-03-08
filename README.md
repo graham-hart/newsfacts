@@ -1,7 +1,7 @@
 # newsfacts
 
 ## Known Bugs:
-The vote after making a new vote (a vote made with POST as opposed to PATCH) will throw a Conflict error, and will try to POST instead of PATCH. [`(Rating.vue submitVote())`](src/components/Rating.vue) 
+
 
 ## Description:
 This website allows users to search through a database of news sites and vote on them based off of Bias & Reliability. 
