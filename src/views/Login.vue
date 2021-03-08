@@ -1,19 +1,12 @@
 <template>
   <div id="app">
-    <span>
-      <select id="login" name="id" v-model="id">
-        <option disabled value="">PLEASE SELECT A USER</option>
-        <option
-          v-for="user in users"
-          :key="user.username"
-          :value="user.person_id"
-        >
-          {{ user.person_id }} - {{ user.username }}
-        </option>
-      </select>
-      <br />
-      <button @click="login()">Submit</button>
-    </span>
+    <div v-if="!$auth.loading">
+      <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
+      <button v-else @click="logout">Log out</button>
+    </div>
+    <div v-else>
+      <h1>LOADING</h1>
+    </div>
   </div>
 </template>
 
@@ -26,15 +19,15 @@ export default {
     };
   },
   methods: {
+    // Log the user in
     login() {
-      this.$store.state.user = {
-        person_id: this.id,
-      };
+      this.$auth.loginWithRedirect();
     },
-  },
-  computed: {
-    users() {
-      return this.$store.state.person;
+    // Log the user out
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin,
+      });
     },
   },
 };

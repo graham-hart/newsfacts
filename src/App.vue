@@ -2,7 +2,11 @@
   <v-app>
     <v-main>
       <div id="container">
-        <NavBar :appname="`Newsfacts ${user.person_id}`" id="navbar" />
+        <NavBar
+          :appname="`Newsfacts ${user.person_id}`"
+          :items="navBarLinks"
+          id="navbar"
+        />
         <router-view id="page" />
       </div>
     </v-main>
@@ -23,6 +27,17 @@ export default {
   computed: {
     user() {
       return this.$store.state.user;
+    },
+    navBarLinks() {
+      let links = [
+        { title: "Home", link: "/" },
+        { title: "Sites", link: "/sites" },
+        { title: "Login", link: "/login" },
+      ];
+      // if (!this.$auth.isAuthenticated && !this.$auth.loading) {
+      //   links.push({ title: "Login", link: "/login" });
+      // }
+      return links;
     },
   },
 };

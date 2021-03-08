@@ -24,15 +24,7 @@ export default {
   name: "NavBar",
   props: {
     appname: String,
-  },
-  data() {
-    return {
-      items: [
-        { title: "Home", link: "/" },
-        { title: "Sites", link: "/sites" },
-        { title: "Login", link: "/login" },
-      ],
-    };
+    items: Array,
   },
 };
 </script>
