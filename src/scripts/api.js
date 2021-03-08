@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-function post(store, endpoint, body) {
-	axios.post(`${endpoint}`, body).then(r => { store.commit("refreshData"); return r; }).catch(err => { throw err; });
+async function post(store, endpoint, body) {
+	let r = await axios.post(`${endpoint}`, body);
+	store.commit("refreshData");
+	return r;
 }
 async function get(endpoint, query = "") {
 	return await axios.get(`${endpoint}${query}`);

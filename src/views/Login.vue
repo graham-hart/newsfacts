@@ -4,9 +4,6 @@
       <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
       <button v-else @click="logout">Log out</button>
     </div>
-    <div v-else>
-      <h1>LOADING</h1>
-    </div>
   </div>
 </template>
 

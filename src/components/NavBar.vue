@@ -3,10 +3,9 @@
     <v-toolbar id="navbar" app color="#5327a8" dark>
       <router-link to="/" id="appname">{{ appname }}</router-link>
       <v-spacer></v-spacer>
-      <span>
+      <span :key="item.title" v-for="item in items">
         <router-link
-          :key="item.link"
-          v-for="item in items"
+          v-if="item.link"
           class="nav-elt"
           active-class=""
           tag="span"
@@ -14,6 +13,9 @@
         >
           {{ item.title.toUpperCase() }}
         </router-link>
+        <span v-else class="nav-elt" @click="item.fxn()">
+          {{ item.title.toUpperCase() }}
+        </span>
       </span>
     </v-toolbar>
   </div>

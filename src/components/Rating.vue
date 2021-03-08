@@ -24,11 +24,13 @@
         :min="category.range_min"
         :max="category.range_max"
         @change="voteChanged()"
-        :disabled="!isUser"
+        :disabled="!isAuthenticated"
       />
-      <h2 id="votedisplay" v-if="isUser">{{ vote }}</h2>
+      <h2 id="votedisplay" v-if="isAuthenticated">{{ vote }}</h2>
       <span v-else class="text"><p>Please log in to vote!</p></span>
-      <button v-if="isUser" @click="submitVote()" id="voteSubmit">Vote</button>
+      <button v-if="isAuthenticated" @click="submitVote()" id="voteSubmit">
+        Vote
+      </button>
     </span>
   </div>
 </template>
@@ -68,7 +70,7 @@ export default {
         (v) =>
           v.newssite_id == this.site.newssite_id &&
           v.category_id == this.category.category_id &&
-          v.person_id == this.user.person_id
+          v.voter_email == this.$auth.user.email
       )[0];
       try {
         api.patch(this.$store, `vote?vote_id=eq.${v.vote_id}`, {
@@ -79,15 +81,15 @@ export default {
           score: this.vote,
           newssite_id: this.site.newssite_id,
           category_id: this.category.category_id,
-          person_id: this.user.person_id,
+          voter_email: this.$auth.user.email,
         });
       }
       this.$store.commit("refreshData");
     },
   },
   computed: {
-    isUser() {
-      return this.user.person_id != 1;
+    isAuthenticated() {
+      return this.$auth.isAuthenticated;
     },
     votes() {
       return this.$store.state.vote.filter(
@@ -100,11 +102,12 @@ export default {
       return this.$store.state.user;
     },
     getUserVote() {
-      let v = this.votes.filter(
-        (v) =>
-          v.category_id == this.category.category_id &&
-          v.newssite_id == this.site.newssite_id &&
-          v.person_id == this.user.person_id
+      let v = this.votes.filter((v) =>
+        v.category_id == this.category.category_id &&
+        v.newssite_id == this.site.newssite_id &&
+        v.voter_email == this.$auth.isAuthenticated
+          ? this.$auth.user.email
+          : ""
       )[0];
       if (!v) {
         v = null;
