@@ -123,7 +123,7 @@ export default {
         sum++;
         num += v.score;
       }
-      return num / sum;
+      return Math.round((num / sum) * 100) / 100;
     },
   },
 };
