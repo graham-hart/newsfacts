@@ -32,12 +32,19 @@
         Vote
       </button>
     </span>
+    <BarChart
+      :key="this.category.name"
+      :category="this.category"
+      :vote_data="this.votes"
+    />
   </div>
 </template>
 <script>
 import api from "@/scripts/api.js";
+import BarChart from "@/components/BarChart.vue";
 export default {
   name: "Rating",
+  components: { BarChart },
   data() {
     return { vote: null, voteSet: false, changed: false };
   },
