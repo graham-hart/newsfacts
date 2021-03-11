@@ -1,7 +1,6 @@
 # newsfacts
 
 ## Known Bugs:
-- Vote graphing gives 2 for all values with votes
 
 ## Description:
 This website allows users to search through a database of news sites and vote on them based off of Bias & Reliability. 
@@ -13,7 +12,6 @@ However, because the backend is not currently online, this will not work unless 
 ## TODO:
 - Auth0
 - Search Filters (Bias, ETC)
-- Graph Votes
 - Update Styling
 
 ## Features:
@@ -21,3 +19,4 @@ However, because the backend is not currently online, this will not work unless 
 - Site Display
 - Anonymous User
 - Searching
+- Graph Votes
