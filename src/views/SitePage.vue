@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div id="head">
-      <h1 class="site-title" :key="site.id">
+      <h1 class="site-title" :key="site.name">
         {{ site != null ? site.name : "ERROR: SITE NOT FOUND" }}
       </h1>
       <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
@@ -17,15 +17,13 @@
         />
       </div>
     </div>
-    <refresh />
   </div>
 </template>
 
 <script>
-import Refresh from "../components/Refresh.vue";
 import Rating from "../components/Rating.vue";
 export default {
-  components: { Refresh, Rating },
+  components: { Rating },
   name: "SitePage",
   computed: {
     site() {
@@ -53,15 +51,6 @@ export default {
   flex-grow: 1;
   max-width: 100%;
   height: 500px;
-}
-.category {
-  margin-top: 30px;
-  background-color: white;
-  /* width: 200px; */
-  padding: 20px;
-  border-radius: 5px;
-  flex-grow: 1;
-  border: 5px solid #afafaf;
 }
 #body {
   margin: 50px 50px;

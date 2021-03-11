@@ -18,17 +18,13 @@
         ></span
       >
     </div>
-    <refresh id="refresh" />
   </div>
 </template>
 
 <script>
-import Refresh from "../components/Refresh";
 export default {
   name: "Sites",
-  components: {
-    Refresh,
-  },
+  components: {},
   data() {
     return { searchVal: "", shownSites: this.sites };
   },

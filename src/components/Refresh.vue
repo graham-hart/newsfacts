@@ -15,7 +15,7 @@ export default {
 #refresh {
   position: fixed;
   right: 20px;
-  bottom: 20px;
+  top: 80px;
   color: #fafafa;
   font-family: monospace;
 }

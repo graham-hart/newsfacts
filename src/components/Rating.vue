@@ -35,7 +35,7 @@
     <BarChart
       :key="this.category.name"
       :category="this.category"
-      :vote_data="this.votes"
+      :chartData="chartData"
     />
   </div>
 </template>
@@ -92,6 +92,7 @@ export default {
         });
       }
       this.$store.commit("refreshData");
+      this.$forceUpdate();
     },
   },
   computed: {
@@ -109,12 +110,12 @@ export default {
       return this.$store.state.user;
     },
     getUserVote() {
-      let v = this.votes.filter((v) =>
-        v.category_id == this.category.category_id &&
-        v.newssite_id == this.site.newssite_id &&
-        v.voter_email == this.$auth.isAuthenticated
-          ? this.$auth.user.email
-          : ""
+      let v = this.votes.filter(
+        (v) =>
+          (v.category_id == this.category.category_id &&
+            v.newssite_id == this.site.newssite_id &&
+            v.voter_email == this.$auth.user.email) ||
+          ""
       )[0];
       if (!v) {
         v = null;
@@ -132,14 +133,56 @@ export default {
       }
       return Math.round((num / sum) * 100) / 100;
     },
+    votesByScore() {
+      let scFr = {};
+      this.votes.forEach((v) => {
+        scFr[v.score] = 0;
+      });
+      this.votes.forEach((v) => {
+        scFr[v.score] += 1;
+      });
+      for (let k of this.labels) {
+        if (!Object.keys(scFr).includes(k.toString())) {
+          scFr[k] = 0;
+        }
+      }
+      const keysArr = Object.keys(scFr).sort(
+        (a, b) => parseInt(a) - parseInt(b)
+      );
+      let vals = [];
+      keysArr.forEach((k) => {
+        vals.push(scFr[k]);
+      });
+      return vals;
+    },
+    chartData() {
+      return {
+        labels: this.labels,
+        datasets: [
+          {
+            label: "Number of votes",
+            data: this.votesByScore,
+            backgroundColor: "#7c65a8",
+          },
+        ],
+      };
+    },
+    labels() {
+      let l = [];
+      for (let i = this.category.range_min; i <= this.category.range_max; i++) {
+        l.push(i);
+      }
+      return l;
+    },
   },
 };
 </script>
 <style scoped>
 #app {
-  margin: 20px 1%;
+  margin: 20px auto;
   background-color: white;
   flex-grow: 1;
+  width: 600px;
   padding: 20px;
   border-radius: 10px;
   border: 8px solid #e1e1e1;
