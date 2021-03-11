@@ -13,7 +13,7 @@ export default {
 </script>
 <style scoped>
 #refresh {
-  position: fixed;
+  position: absolute;
   right: 20px;
   top: 80px;
   color: #fafafa;

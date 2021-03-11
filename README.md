@@ -12,7 +12,7 @@ However, because the backend is not currently online, this will not work unless 
 ## TODO:
 - Search Filters (Bias, ETC)
 - Update Styling
-
+- Admin Panel
 ## Features:
 - Voting
 - Site Display

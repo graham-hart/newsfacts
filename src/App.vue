@@ -2,8 +2,8 @@
   <v-app>
     <v-main id="app">
       <NavBar :appname="`Newsfacts`" :items="navBarLinks" id="navbar" />
-      <router-view id="page" />
-      <refresh />
+      <router-view id="page" fill-height />
+      <refresh v-if="canRefresh" />
     </v-main>
   </v-app>
 </template>
@@ -22,6 +22,14 @@ export default {
     this.$store.commit("refreshData");
   },
   computed: {
+    canRefresh() {
+      for (let url of ["Sites", "Site"]) {
+        if (this.$route.name.includes(url)) {
+          return true;
+        }
+      }
+      return false;
+    },
     user() {
       return this.$auth.user || { name: "LOGGED OUT" };
     },
@@ -43,10 +51,12 @@ export default {
 <style>
 body,
 html {
+  position: relative;
   overflow: overlay;
   cursor: auto;
   width: 100%;
   background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
+  background-attachment: fixed;
 }
 @font-face {
   font-family: NotoSans-Black;
@@ -61,7 +71,7 @@ html {
   font-family: NotoSans-Black;
 }
 #page {
-  padding-bottom: 50px;
+  background: transparent;
 }
 ::-webkit-scrollbar {
   background-color: #fafafa11;
