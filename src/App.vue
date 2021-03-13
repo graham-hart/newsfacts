@@ -58,17 +58,14 @@ html {
   background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
   background-attachment: fixed;
 }
-@font-face {
-  font-family: NotoSans-Black;
-  src: url("./assets/fonts/NotoSansSC-Black.otf");
-}
 #app {
   background-color: transparent;
 }
 .page-title {
   text-align: center;
   margin-top: 20px;
-  font-family: NotoSans-Black;
+  font-family: "Noto Sans SC";
+  font-weight: 700;
 }
 #page {
   background: transparent;

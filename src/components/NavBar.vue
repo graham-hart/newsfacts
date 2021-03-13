@@ -34,17 +34,21 @@ export default {
 <style scoped>
 #appname {
   font-size: 30px !important;
-  font-family: NotoSans-Black;
+  font-family: "Noto Sans SC";
+  /* font-weight: bold; */
+  text-transform: lowercase;
   text-decoration: none;
   color: #fafafa;
 }
 .nav-elt {
   padding: 5px 10px;
-  font-family: NotoSans-Black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.02rem;
   font-size: 25px;
   color: #e1e1e1;
   cursor: pointer;
   margin: 0px 5px;
-  font-weight: bold;
 }
 </style>

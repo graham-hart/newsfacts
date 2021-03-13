@@ -68,7 +68,8 @@ export default {
 }
 .site-title {
   text-align: left;
-  font-family: NotoSans-Black;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: 900;
 }
 a {
   font-size: 25px;
