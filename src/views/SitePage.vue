@@ -6,7 +6,8 @@
       </h1>
       <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
     </div>
-    <div id="body" class="flex-row">
+    <div id="body">
+      <selector :values="categoryNames" />
       <div id="ratings" class="flex-column">
         <h2>Ratings:</h2>
         <rating
@@ -22,9 +23,13 @@
 
 <script>
 import Rating from "../components/Rating.vue";
+import Selector from "@/components/Selector.vue";
 export default {
-  components: { Rating },
+  components: { Rating, Selector },
   name: "SitePage",
+  mounted() {
+    console.log(this.$vuetify.breakpoint.xs);
+  },
   computed: {
     site() {
       return this.$store.state.newssite.filter(
@@ -33,6 +38,10 @@ export default {
     },
     categories() {
       return this.$store.state.category;
+    },
+    categoryNames() {
+      console.log();
+      return this.categories.map((v) => v.name);
     },
   },
 };
@@ -54,7 +63,6 @@ export default {
 }
 #body {
   margin: 50px 50px;
-  display: flex !important;
   justify-content: start;
 }
 #head {

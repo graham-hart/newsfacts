@@ -28,11 +28,17 @@
       />
       <h2 id="votedisplay" v-if="isAuthenticated">{{ vote }}</h2>
       <span v-else class="text"><p>Please log in to vote!</p></span>
-      <button v-if="isAuthenticated" @click="submitVote()" id="voteSubmit">
+      <button
+        v-if="isAuthenticated"
+        @click="submitVote()"
+        id="voteSubmit"
+        class="noselect"
+      >
         Vote
       </button>
     </span>
     <BarChart
+      v-if="!$vuetify.breakpoint.xs"
       :key="this.category.name"
       :category="this.category"
       :chartData="chartData"
@@ -66,7 +72,6 @@ export default {
           this.voteSet = true;
           this.vote = v;
         } else if (this.vote == null) {
-          // this.voteSet = true;
           this.vote = 0;
         }
         return this.vote;
@@ -188,7 +193,8 @@ export default {
   margin: 20px auto;
   background-color: white;
   flex-grow: 1;
-  width: 600px;
+  width: 80%;
+  max-width: 1200px;
   padding: 20px;
   border-radius: 10px;
   border: 8px solid #e1e1e1;

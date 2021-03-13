@@ -1,7 +1,12 @@
 <template>
   <v-app>
     <v-main id="app">
-      <NavBar :appname="`Newsfacts`" :items="navBarLinks" id="navbar" />
+      <NavBar
+        :appname="`Newsfacts`"
+        :items="navBarLinks"
+        id="navbar"
+        class="noselect"
+      />
       <router-view id="page" fill-height />
       <refresh v-if="canRefresh" />
     </v-main>
@@ -76,5 +81,14 @@ html {
 }
 ::-webkit-scrollbar-thumb {
   background-color: #a1a1a1aa;
+}
+.noselect,
+br {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */
+  -khtml-user-select: none; /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently                                 supported by Chrome, Edge, Opera and Firefox */
 }
 </style>
