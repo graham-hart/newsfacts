@@ -190,17 +190,18 @@ export default {
 </script>
 <style scoped>
 #app {
-  margin: 20px auto;
+  margin: 0px auto;
   background-color: white;
   flex-grow: 1;
-  width: 80%;
-  max-width: 1200px;
+  /* width: 80%;
+  max-width: 1200px; */
   padding: 20px;
-  border-radius: 10px;
-  border: 8px solid #e1e1e1;
+  border-width: 0px 5px 5px 5px;
+  border-style: solid;
+  border-color: #e1e1e1;
 }
 #vote {
-  --margin-h: 20px;
+  --margin-h: 200px;
   --margin-v: 1%;
   width: calc(100% - calc(var(--margin-h) * 2));
   margin: var(--margin-v) var(--margin-h);

@@ -7,15 +7,20 @@
       <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
     </div>
     <div id="body">
-      <selector :values="categoryNames" />
       <div id="ratings" class="flex-column">
-        <h2>Ratings:</h2>
-        <rating
-          :category="category"
-          :site="site"
-          v-for="category in categories"
-          :key="category.name"
+        <h2>Ratings</h2>
+        <selector
+          @changeSelection="changeRateSelection($event)"
+          :values="categoryNames"
         />
+        <span v-for="category in categories" :key="category.name">
+          <rating
+            :category="category"
+            :site="site"
+            v-if="category.name == categoryNames[rateSelection]"
+            :key="rateSelection"
+          />
+        </span>
       </div>
     </div>
   </div>
@@ -27,8 +32,15 @@ import Selector from "@/components/Selector.vue";
 export default {
   components: { Rating, Selector },
   name: "SitePage",
-  mounted() {
-    console.log(this.$vuetify.breakpoint.xs);
+  data() {
+    return {
+      rateSelection: 0,
+    };
+  },
+  methods: {
+    changeRateSelection(sel) {
+      this.rateSelection = sel;
+    },
   },
   computed: {
     site() {

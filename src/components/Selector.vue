@@ -25,6 +25,7 @@ export default {
   methods: {
     select(item) {
       this.selected = this.values.indexOf(item);
+      this.$emit("changeSelection", this.selected);
     },
   },
 };
@@ -36,6 +37,9 @@ export default {
   height: var(--sel-height);
   display: flex;
   justify-content: start;
+  border-width: 5px 5px 0px 5px;
+  border-style: solid;
+  border-color: #e1e1e1;
 }
 .item {
   height: var(--sel-height);
@@ -45,6 +49,7 @@ export default {
   text-transform: uppercase;
   color: white;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  background-color: rgb(107, 14, 189);
 }
 .item.current,
 .item:hover {
