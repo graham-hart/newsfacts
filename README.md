@@ -13,6 +13,12 @@ However, because the backend is not currently online, this will not work unless 
 - Search Filters (Bias, ETC)
 - Update Styling
 - Admin Panel
+- ### Pages to Add:
+	- About
+	- Home
+	- Login/Logout
+	- Criteria for Bias & Reliability
+	- Page not found screen (404)
 ## Features:
 - Voting
 - Site Display
