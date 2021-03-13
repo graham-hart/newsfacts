@@ -110,13 +110,18 @@ export default {
       return this.$store.state.user;
     },
     getUserVote() {
-      let v = this.votes.filter(
-        (v) =>
-          (v.category_id == this.category.category_id &&
-            v.newssite_id == this.site.newssite_id &&
-            v.voter_email == this.$auth.user.email) ||
-          ""
-      )[0];
+      let v;
+      try {
+        v = this.votes.filter(
+          (v) =>
+            (v.category_id == this.category.category_id &&
+              v.newssite_id == this.site.newssite_id &&
+              v.voter_email == this.$auth.user.email) ||
+            ""
+        )[0];
+      } catch {
+        v = null;
+      }
       if (!v) {
         v = null;
       } else {
