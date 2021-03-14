@@ -9,20 +9,22 @@
       />
       <router-view id="page" />
       <refresh v-if="canRefresh" />
-      <div class="footer">e</div>
+      <Footer></Footer>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Refresh from "@/components/Refresh.vue";
+import Refresh from "@/components/Refresh";
 import NavBar from "@/components/NavBar";
+import Footer from "@/components/Footer";
 export default {
   name: "App",
 
   components: {
     NavBar,
     Refresh,
+    Footer,
   },
   created() {
     this.$store.commit("refreshData");
@@ -69,12 +71,6 @@ html {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-}
-.footer {
-  bottom: 0;
-  height: 100px;
-  line-height: 60px;
-  background-color: purple;
 }
 .page-title {
   text-align: center;

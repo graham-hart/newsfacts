@@ -106,6 +106,5 @@ a {
   border: 5px solid #e1e1e1;
   width: 100%;
   margin: auto;
-  margin-bottom: 50px;
 }
 </style>

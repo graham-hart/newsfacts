@@ -13,6 +13,7 @@ However, because the backend is not currently online, this will not work unless 
 - Search Filters (Bias, ETC)
 - Update Styling
 - Admin Panel
+- Footer
 - ### Pages to Add:
 	- About
 	- Home
