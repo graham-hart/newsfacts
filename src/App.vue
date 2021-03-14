@@ -9,7 +9,7 @@
       />
       <router-view id="page" />
       <refresh v-if="canRefresh" />
-      <Footer></Footer>
+      <Footer v-if="!$vuetify.breakpoint.xs"></Footer>
     </v-main>
   </v-app>
 </template>
@@ -77,6 +77,7 @@ html {
   flex-grow: 1;
   min-height: 100vh;
   overflow-y: auto;
+  padding-bottom: 100px;
 }
 #app {
   display: flex;
