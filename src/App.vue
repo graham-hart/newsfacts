@@ -45,6 +45,8 @@ export default {
       let links = [
         { title: "Home", link: "/" },
         { title: "Sites", link: "/sites" },
+        { title: "About", link: "/about" },
+        { title: "Contact", link: "/contact" },
       ];
       if (!this.$auth.isAuthenticated && !this.$auth.loading) {
         links.push({ title: "Login", link: "/login" });
@@ -93,6 +95,7 @@ GLOBAL STYLING
   text-align: center;
   font-family: "Noto Sans SC";
   font-weight: 700;
+  text-transform: capitalize;
 }
 ::-webkit-scrollbar {
   background-color: #fafafa11;

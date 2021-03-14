@@ -4,6 +4,8 @@ import Home from '@/views/Home.vue';
 import Sites from '@/views/Sites.vue';
 import SitePage from '@/views/SitePage.vue';
 import Login from '@/views/Login.vue';
+import About from '@/views/About.vue';
+import Contact from '@/views/Contact.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
 
 Vue.use(Router);
@@ -31,6 +33,16 @@ export default new Router({
 			path: "/login",
 			name: "Login",
 			component: Login
+		},
+		{
+			path: "/about",
+			name: "About",
+			component: About
+		},
+		{
+			path: "/contact",
+			name: "Contact",
+			component: Contact
 		},
 		{
 			path: "/*",
