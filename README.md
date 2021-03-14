@@ -20,10 +20,11 @@ However, because the backend is not currently online, this will not work unless 
 	- Login/Logout
 	- Criteria for Bias & Reliability
 	- Page not found screen (404)
+
 ## Features:
 - Voting
 - Site Display
 - Anonymous User
 - Searching
 - Graph Votes
-- Auth0
+- Login Using Auth0

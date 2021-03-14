@@ -1,46 +1,50 @@
 <template>
   <div id="app">
-    <div id="head">
-      <h1 class="site-title" :key="site.name">
-        {{ site != null ? site.name : "ERROR: SITE NOT FOUND" }}
-      </h1>
-      <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
-    </div>
-    <div id="body">
-      <div id="ratings" class="flex-column">
-        <h2>Ratings</h2>
-        <div id="ratingContainer" v-if="!$vuetify.breakpoint.xs">
-          <selector
-            @changeSelection="changeRateSelection($event)"
-            :values="categoryNames"
-          />
-          <span v-for="category in categories" :key="category.name">
+    <span v-if="site">
+      <div id="head">
+        <h1 class="site-title" :key="site.name">
+          {{ site != null ? site.name : "ERROR: SITE NOT FOUND" }}
+        </h1>
+        <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
+      </div>
+      <div id="body">
+        <div id="ratings" class="flex-column">
+          <h2>Ratings</h2>
+          <div id="ratingContainer" v-if="!$vuetify.breakpoint.xs">
+            <selector
+              @changeSelection="changeRateSelection($event)"
+              :values="categoryNames"
+            />
+            <span v-for="category in categories" :key="category.name">
+              <rating
+                :category="category"
+                :site="site"
+                v-if="category.name == categoryNames[rateSelection]"
+                :key="rateSelection"
+              />
+            </span>
+          </div>
+          <span id="ratingContainer" v-else>
             <rating
+              v-for="category in categories"
+              :key="category.name"
               :category="category"
               :site="site"
-              v-if="category.name == categoryNames[rateSelection]"
-              :key="rateSelection"
             />
           </span>
         </div>
-        <span id="ratingContainer" v-else>
-          <rating
-            v-for="category in categories"
-            :key="category.name"
-            :category="category"
-            :site="site"
-          />
-        </span>
       </div>
-    </div>
+    </span>
+    <page-not-found v-else />
   </div>
 </template>
 
 <script>
 import Rating from "../components/Rating.vue";
 import Selector from "@/components/Selector.vue";
+import PageNotFound from "@/views/PageNotFound.vue";
 export default {
-  components: { Rating, Selector },
+  components: { Rating, Selector, PageNotFound },
   name: "SitePage",
   data() {
     return {
