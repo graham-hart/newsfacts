@@ -25,5 +25,7 @@ export default {
   background-color: rgb(99, 32, 185);
   column-count: 3;
   column-gap: 40px;
+  color: rgb(175, 183, 189);
+  font-weight: bold;
 }
 </style>
