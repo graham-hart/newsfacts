@@ -57,6 +57,11 @@ export default {
 };
 </script>
 <style>
+/* 
+==========
+FOR THIS PAGE
+==========
+*/
 body,
 html {
   position: relative;
@@ -66,21 +71,26 @@ html {
   background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
   background-attachment: fixed;
 }
+#page {
+  background: transparent;
+  min-height: 100vh;
+}
 #app {
   background-color: transparent;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
+/* 
+==========
+GLOBAL STYLING
+==========
+*/
 .page-title {
   text-align: center;
   /* margin-top: 20px; */
   font-family: "Noto Sans SC";
   font-weight: 700;
-}
-#page {
-  background: transparent;
-  min-height: 100vh;
 }
 ::-webkit-scrollbar {
   background-color: #fafafa11;
@@ -96,6 +106,6 @@ br {
   -khtml-user-select: none; /* Konqueror HTML */
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
-  user-select: none; /* Non-prefixed version, currently                                 supported by Chrome, Edge, Opera and Firefox */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
 </style>

@@ -2,7 +2,10 @@
   <div id="app">
     <div v-if="!$auth.loading">
       <button v-if="!$auth.isAuthenticated" @click="login">Log in</button>
-      <button v-else @click="logout">Log out</button>
+      <div v-else>
+        {{ $auth.user.email }} <br />
+        <button @click="logout">Log out</button>
+      </div>
     </div>
   </div>
 </template>

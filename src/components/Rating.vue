@@ -2,14 +2,14 @@
   <div id="app">
     <h2>{{ category.name }}</h2>
     <div v-if="votes.length > 0" id="avgVotes">
-      <p class="catText text">
+      <p class="text">
         <br />
         <b>{{ avgVotes }}</b>
         out of <b>{{ votes.length }}</b> votes
       </p>
     </div>
     <div v-else id="avgVotes">
-      <p class="catText text">
+      <p class="text">
         <br />
         This category doesn't have any votes. <br />Be the first person to vote!
       </p>
@@ -79,26 +79,33 @@ export default {
       }
     },
     submitVote() {
-      let v = this.votes.filter(
+      let vote = this.votes.filter(
         (v) =>
           v.newssite_id == this.site.newssite_id &&
           v.category_id == this.category.category_id &&
           v.voter_email == this.$auth.user.email
       )[0];
-      try {
-        api.patch(this.$store, `vote?vote_id=eq.${v.vote_id}`, {
-          score: this.vote,
-        });
-      } catch (e) {
-        api.post(this.$store, `vote`, {
-          score: this.vote,
-          newssite_id: this.site.newssite_id,
-          category_id: this.category.category_id,
-          voter_email: this.$auth.user.email,
-        });
+      if (
+        this.vote <= this.category.range_max &&
+        this.vote >= this.category.range_min
+      ) {
+        try {
+          api.patch(this.$store, `vote?vote_id=eq.${vote.vote_id}`, {
+            score: this.vote,
+          });
+        } catch (e) {
+          api.post(this.$store, `vote`, {
+            score: this.vote,
+            newssite_id: this.site.newssite_id,
+            category_id: this.category.category_id,
+            voter_email: this.$auth.user.email,
+          });
+        }
+        this.$store.commit("refreshData");
+        this.$forceUpdate();
+      } else {
+        console.error("INVALID VOTE");
       }
-      this.$store.commit("refreshData");
-      this.$forceUpdate();
     },
   },
   computed: {
@@ -190,28 +197,33 @@ export default {
 };
 </script>
 <style scoped>
+/* 
+==========
+FOR THIS COMPONENT
+==========
+*/
 #app {
   margin: 0px auto;
   background-color: white;
   flex-grow: 1;
-  /* width: 80%;
-  max-width: 1200px; */
   padding: 20px;
 }
-#vote {
-  --margin-h: auto;
-  --margin-v: 1%;
-  display: block;
-  width: calc(100% - 50px);
-  margin: var(--margin-v) var(--margin-h);
-}
-#votedisplay {
-  text-align: center;
+#chart {
+  width: 80%;
 }
 h2 {
   font-weight: 800;
   text-align: center;
 }
+.text {
+  font-size: 20px;
+  text-align: center;
+}
+/* 
+==========
+VOTING
+==========
+*/
 #voteSubmit {
   margin: auto !important;
   display: block;
@@ -220,14 +232,14 @@ h2 {
   background-color: #5327a8;
   box-shadow: 1px 3px 2px #000000aa;
 }
-.catText {
-  font-weight: 400;
-}
-.text {
-  font-size: 20px;
+#votedisplay {
   text-align: center;
 }
-#chart {
-  width: 80%;
+#vote {
+  --margin-h: auto;
+  --margin-v: 1%;
+  display: block;
+  width: calc(100% - 50px);
+  margin: var(--margin-v) var(--margin-h);
 }
 </style>

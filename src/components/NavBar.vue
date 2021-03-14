@@ -35,7 +35,6 @@ export default {
 #appname {
   font-size: 30px !important;
   font-family: "Noto Sans SC";
-  /* font-weight: bold; */
   text-transform: lowercase;
   text-decoration: none;
   color: #fafafa;
