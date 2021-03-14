@@ -8,8 +8,9 @@ export default {
 </script>
 <style scoped>
 #footer {
-  /* margin-top: 100px; */
+  display: flex;
   align-self: flex-end;
+  margin-bottom: auto;
   padding: 20px;
   line-height: 40px;
   background-color: rgb(99, 32, 185);

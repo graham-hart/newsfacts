@@ -87,7 +87,6 @@ export default {
   justify-content: start;
 }
 #head {
-  /* margin-top: 40px; */
   padding-top: 20px;
   justify-content: start;
   align-items: center;
@@ -99,7 +98,7 @@ export default {
   font-weight: 900;
 }
 a {
-  font-size: 25px;
+  font-size: 1.5rem;
   font-weight: 450 !important;
 }
 #ratingContainer {

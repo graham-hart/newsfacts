@@ -69,17 +69,19 @@ html {
   cursor: auto;
   width: 100%;
   background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
-  background-attachment: fixed;
+  height: auto;
+  min-height: 100vh;
 }
 #page {
   background: transparent;
+  flex-grow: 1;
   min-height: 100vh;
+  overflow-y: auto;
 }
 #app {
-  background-color: transparent;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  background: transparent;
 }
 /* 
 ==========
@@ -88,7 +90,6 @@ GLOBAL STYLING
 */
 .page-title {
   text-align: center;
-  /* margin-top: 20px; */
   font-family: "Noto Sans SC";
   font-weight: 700;
 }

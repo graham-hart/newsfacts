@@ -73,7 +73,7 @@ export default {
   border: 2px solid grey;
   color: grey;
   padding: 20px;
-  font-size: 25px;
+  font-size: 2.5rem;
   width: 50%;
   height: 80px;
   margin: 50px auto;

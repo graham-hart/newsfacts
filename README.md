@@ -1,7 +1,7 @@
 # newsfacts
 
 ## Known Bugs:
-- Footer acting weird on non-full-height screens -- Pages using vue components inside are sized weird
+
 ## Description:
 This website allows users to search through a database of news sites and vote on them based off of Bias & Reliability. 
 

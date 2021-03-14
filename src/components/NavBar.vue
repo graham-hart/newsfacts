@@ -33,7 +33,7 @@ export default {
 
 <style scoped>
 #appname {
-  font-size: 30px !important;
+  font-size: 2rem !important;
   font-family: "Noto Sans SC";
   text-transform: lowercase;
   text-decoration: none;
@@ -45,7 +45,7 @@ export default {
   font-weight: bold;
   text-transform: uppercase;
   letter-spacing: 0.02rem;
-  font-size: 25px;
+  font-size: 1.5rem;
   color: #e1e1e1;
   cursor: pointer;
   margin: 0px 5px;
