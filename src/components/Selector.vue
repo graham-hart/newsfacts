@@ -36,10 +36,8 @@ export default {
   background-color: rgb(124, 15, 219);
   height: var(--sel-height);
   display: flex;
+  flex-direction: row;
   justify-content: start;
-  border-width: 5px 5px 0px 5px;
-  border-style: solid;
-  border-color: #e1e1e1;
 }
 .item {
   height: var(--sel-height);

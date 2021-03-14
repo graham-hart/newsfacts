@@ -38,6 +38,7 @@
       </button>
     </span>
     <BarChart
+      id="chart"
       v-if="!$vuetify.breakpoint.xs"
       :key="this.category.name"
       :category="this.category"
@@ -196,14 +197,12 @@ export default {
   /* width: 80%;
   max-width: 1200px; */
   padding: 20px;
-  border-width: 0px 5px 5px 5px;
-  border-style: solid;
-  border-color: #e1e1e1;
 }
 #vote {
-  --margin-h: 200px;
+  --margin-h: auto;
   --margin-v: 1%;
-  width: calc(100% - calc(var(--margin-h) * 2));
+  display: block;
+  width: calc(100% - 50px);
   margin: var(--margin-v) var(--margin-h);
 }
 #votedisplay {
@@ -227,5 +226,8 @@ h2 {
 .text {
   font-size: 20px;
   text-align: center;
+}
+#chart {
+  width: 80%;
 }
 </style>

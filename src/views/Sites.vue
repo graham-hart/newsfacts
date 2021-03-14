@@ -68,8 +68,6 @@ export default {
 }
 #sites {
   display: flex;
-  margin-top: 50px;
-  margin-bottom: 50px;
 }
 #searchInput {
   border: 2px solid grey;

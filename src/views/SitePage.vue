@@ -9,16 +9,26 @@
     <div id="body">
       <div id="ratings" class="flex-column">
         <h2>Ratings</h2>
-        <selector
-          @changeSelection="changeRateSelection($event)"
-          :values="categoryNames"
-        />
-        <span v-for="category in categories" :key="category.name">
+        <div id="ratingContainer" v-if="!$vuetify.breakpoint.xs">
+          <selector
+            @changeSelection="changeRateSelection($event)"
+            :values="categoryNames"
+          />
+          <span v-for="category in categories" :key="category.name">
+            <rating
+              :category="category"
+              :site="site"
+              v-if="category.name == categoryNames[rateSelection]"
+              :key="rateSelection"
+            />
+          </span>
+        </div>
+        <span id="ratingContainer" v-else>
           <rating
+            v-for="category in categories"
+            :key="category.name"
             :category="category"
             :site="site"
-            v-if="category.name == categoryNames[rateSelection]"
-            :key="rateSelection"
           />
         </span>
       </div>
@@ -63,7 +73,6 @@ export default {
 .rate {
   width: 100%;
   margin-top: 20px;
-  /* padding-top: 20px; */
 }
 #ratings {
   display: flex;
@@ -78,21 +87,25 @@ export default {
   justify-content: start;
 }
 #head {
-  margin-top: 40px;
+  /* margin-top: 40px; */
+  padding-top: 20px;
   justify-content: start;
   align-items: center;
   margin-left: 50px;
 }
 .ratelabel {
   text-align: center;
-}
-.site-title {
-  text-align: left;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
   font-weight: 900;
 }
 a {
   font-size: 25px;
   font-weight: 450 !important;
+}
+#ratingContainer {
+  border: 5px solid #e1e1e1;
+  width: 100%;
+  margin: auto;
+  margin-bottom: 50px;
 }
 </style>

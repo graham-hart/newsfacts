@@ -1,14 +1,15 @@
 <template>
   <v-app>
-    <v-main id="app">
+    <v-main id="app" style="flex-grow: 1">
       <NavBar
         :appname="`Newsfacts`"
         :items="navBarLinks"
         id="navbar"
         class="noselect"
       />
-      <router-view id="page" fill-height />
+      <router-view id="page" />
       <refresh v-if="canRefresh" />
+      <div class="footer">e</div>
     </v-main>
   </v-app>
 </template>
@@ -65,15 +66,25 @@ html {
 }
 #app {
   background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+.footer {
+  bottom: 0;
+  height: 100px;
+  line-height: 60px;
+  background-color: purple;
 }
 .page-title {
   text-align: center;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   font-family: "Noto Sans SC";
   font-weight: 700;
 }
 #page {
   background: transparent;
+  min-height: 100vh;
 }
 ::-webkit-scrollbar {
   background-color: #fafafa11;
