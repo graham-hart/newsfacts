@@ -5,15 +5,15 @@
       <v-spacer></v-spacer>
       <span :key="item.title" v-for="item in items">
         <router-link
-          v-if="item.link"
+          v-if="typeof item.action == 'string'"
           class="nav-elt"
           active-class=""
           tag="span"
-          :to="item.link"
+          :to="item.action"
         >
           {{ item.title.toUpperCase() }}
         </router-link>
-        <span v-else class="nav-elt" @click="item.fxn()">
+        <span v-else class="nav-elt" @click="item.action()">
           {{ item.title.toUpperCase() }}
         </span>
       </span>

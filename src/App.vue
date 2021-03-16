@@ -3,7 +3,7 @@
     <v-main id="app" style="flex-grow: 1">
       <NavBar
         :appname="`Newsfacts`"
-        :items="navBarLinks"
+        :items="navBarButtons"
         id="navbar"
         class="noselect"
       />
@@ -20,7 +20,6 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 export default {
   name: "App",
-
   components: {
     NavBar,
     Refresh,
@@ -28,6 +27,8 @@ export default {
   },
   created() {
     this.$store.commit("refreshData");
+    console.log(this.$auth);
+    this.$auth.getTokenSilently();
   },
   computed: {
     canRefresh() {
@@ -41,19 +42,19 @@ export default {
     user() {
       return this.$auth.user || { name: "LOGGED OUT" };
     },
-    navBarLinks() {
-      let links = [
-        { title: "Home", link: "/" },
-        { title: "Sites", link: "/sites" },
-        { title: "About", link: "/about" },
-        { title: "Contact", link: "/contact" },
+    navBarButtons() {
+      let buttons = [
+        { title: "Home", action: "/" },
+        { title: "Sites", action: "/sites" },
+        { title: "About", action: "/about" },
+        { title: "Contact", action: "/contact" },
       ];
       if (!this.$auth.isAuthenticated && !this.$auth.loading) {
-        links.push({ title: "Login", link: "/login" });
-      } else {
-        links.push({ title: "Logout", link: "/login" });
+        buttons.push({ title: "Login", action: this.$auth.loginWithPopup });
+      } else if (!this.$auth.loading) {
+        buttons.push({ title: "Logout", action: this.$auth.logout });
       }
-      return links;
+      return buttons;
     },
   },
 };

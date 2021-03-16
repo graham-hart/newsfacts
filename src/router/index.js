@@ -3,7 +3,6 @@ import Router from 'vue-router';
 import Home from '@/views/Home.vue';
 import Sites from '@/views/Sites.vue';
 import SitePage from '@/views/SitePage.vue';
-import Login from '@/views/Login.vue';
 import About from '@/views/About.vue';
 import Contact from '@/views/Contact.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
@@ -28,11 +27,6 @@ export default new Router({
 			path: "/sites/:site",
 			name: "Site",
 			component: SitePage
-		},
-		{
-			path: "/login",
-			name: "Login",
-			component: Login
 		},
 		{
 			path: "/about",

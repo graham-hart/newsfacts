@@ -9,6 +9,7 @@ export default new Vuex.Store({
 		category: [],
 		newssite: [],
 		vote: [],
+		adminEmails: ["graham@harts.net", "24ghart@shcp.edu", "newsfacts.app@gmail.com"]
 	},
 	mutations: {
 		refreshData(state) {
