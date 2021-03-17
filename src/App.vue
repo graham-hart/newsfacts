@@ -20,6 +20,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 export default {
   name: "App",
+
   components: {
     NavBar,
     Refresh,
@@ -27,8 +28,6 @@ export default {
   },
   created() {
     this.$store.commit("refreshData");
-    console.log(this.$auth);
-    this.$auth.getTokenSilently();
   },
   computed: {
     canRefresh() {

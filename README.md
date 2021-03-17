@@ -1,7 +1,7 @@
 # Newsfacts UI
 
 ## Known Bugs:
-
+- Login not persisting
 ---
 ## Description:
 This website allows users to search through a database of news sites and vote on them based off of Bias & Reliability. 

@@ -42,7 +42,6 @@ export const useAuth0 = ({
           this.error = null;
         } catch (e) {
           this.error = e;
-          // eslint-disable-next-line
           console.error(e);
         } finally {
           this.popupOpen = false;
@@ -64,6 +63,9 @@ export const useAuth0 = ({
         } finally {
           this.loading = false;
         }
+      },
+      checkSession() {
+        return this.auth0Client.checkSession();
       },
       /** Authenticates the user using the redirect method */
       loginWithRedirect(o) {
@@ -94,7 +96,7 @@ export const useAuth0 = ({
         ...options,
         client_id: options.clientId,
         redirect_uri: redirectUri,
-        useRefreshTokens: true,
+        cacheLocation: 'localstorage'
       });
 
       try {
