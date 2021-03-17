@@ -1,7 +1,6 @@
 # Newsfacts UI
 
 ## Known Bugs:
-- Login not persisting
 ---
 ## Description:
 This website allows users to search through a database of news sites and vote on them based off of Bias & Reliability. 
@@ -16,6 +15,7 @@ However, because the backend is not currently online, this will not work unless 
 - Search Filters (Bias, ETC)
 - Update Styling
 - Admin Panel
+- Sanitize input
 - ### Pages to Add:
 	- About
 	- Home
