@@ -1,11 +1,10 @@
 <template>
-  <div id="app">
+  <div id="rating">
     <h2>{{ category.name }}</h2>
     <div v-if="votes.length > 0" id="avgVotes">
       <p class="text">
         <br />
-        <b>{{ avgVotes }}</b>
-        out of <b>{{ votes.length }}</b> votes
+        Average: <b>{{ avgVotes }}</b> <br />Total: <b>{{ votes.length }}</b>
       </p>
     </div>
     <div v-else id="avgVotes">
@@ -202,7 +201,7 @@ export default {
 FOR THIS COMPONENT
 ==========
 */
-#app {
+#rating {
   margin: 0px auto;
   background-color: white;
   flex-grow: 1;

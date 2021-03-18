@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="selector">
     <span
       v-for="item in values"
       :key="item"
@@ -31,8 +31,8 @@ export default {
 };
 </script>
 <style scoped>
-#app {
-  --sel-height: 50px;
+#selector {
+  --sel-height: 50px !important;
   background-color: rgb(124, 15, 219);
   height: var(--sel-height);
   display: flex;

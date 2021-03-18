@@ -84,7 +84,6 @@ export default {
   min-height: 90%;
   flex-grow: 1;
   max-width: 100%;
-  height: 500px;
 }
 #body {
   margin: 50px 50px;

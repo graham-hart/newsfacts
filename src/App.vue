@@ -67,7 +67,7 @@ FOR THIS PAGE
 body,
 html {
   position: relative;
-  overflow: overlay;
+  /* overflow: overlay; */
   cursor: auto;
   width: 100%;
   background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
@@ -76,10 +76,11 @@ html {
 }
 #page {
   background: transparent;
-  flex-grow: 1;
+  /* flex-grow: 1; */
   min-height: 100vh;
   overflow-y: auto;
-  padding-bottom: 100px;
+  padding-bottom: 50px;
+  height: auto;
 }
 #app {
   display: flex;
