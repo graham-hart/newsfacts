@@ -10,7 +10,7 @@
     <div id="sites" class="flex-column">
       <span v-for="site in sites" :key="site.name">
         <router-link
-          tag="div"
+          tag="button"
           class="site"
           v-if="site.name.toLowerCase().includes(searchVal.toLowerCase())"
           :to="`/sites/${site.route}`"
@@ -60,11 +60,14 @@ export default {
   cursor: pointer;
   margin: 20px auto;
   transition: width 0.15s ease, box-shadow 0.4s ease, background-color 0.2s ease;
+  display: block;
 }
-.site:hover {
+.site:hover,
+.site:focus {
   width: calc(var(--site-width) + var(--site-expand-change));
   background-color: #8dabecaa;
   box-shadow: 0px 5px 12px -5px rgba(0, 0, 0, 0.76);
+  outline: none;
 }
 #sites {
   display: flex;
@@ -79,8 +82,6 @@ export default {
   margin: 50px auto;
   display: block;
   border-radius: 5px;
-}
-#searchInput:focus {
-  outline: none;
+  text-transform: uppercase;
 }
 </style>

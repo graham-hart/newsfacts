@@ -43,4 +43,7 @@ export default {
 .footer-link:hover {
   text-decoration: underline;
 }
+.footer-link:focus {
+  outline: none;
+}
 </style>

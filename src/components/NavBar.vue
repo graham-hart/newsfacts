@@ -8,14 +8,14 @@
           v-if="typeof item.action == 'string'"
           class="nav-elt"
           active-class=""
-          tag="span"
+          tag="button"
           :to="item.action"
         >
           {{ item.title.toUpperCase() }}
         </router-link>
-        <span v-else class="nav-elt" @click="item.action()">
+        <button v-else class="nav-elt" @click="item.action()">
           {{ item.title.toUpperCase() }}
-        </span>
+        </button>
       </span>
     </v-toolbar>
   </div>
@@ -49,5 +49,9 @@ export default {
   color: #e1e1e1;
   cursor: pointer;
   margin: 0px 5px;
+}
+.nav-elt:focus {
+  text-decoration: underline;
+  outline: none;
 }
 </style>

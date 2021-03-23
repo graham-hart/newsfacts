@@ -56,7 +56,11 @@ export default {
       return false;
     },
     user() {
-      return this.$auth.user || { name: "LOGGED OUT" };
+      return (
+        this.$store.state.person.filter(
+          (p) => p.email == this.$auth.user.email
+        )[0] || { name: "ANONYMOUS" }
+      );
     },
     navBarButtons() {
       let buttons = [
@@ -65,7 +69,10 @@ export default {
         { title: "About", action: "/about" },
         { title: "Contact", action: "/contact" },
       ];
-      if (!this.$auth.isAuthenticated && !this.$auth.loading) {
+      if (
+        (!this.$auth.isAuthenticated && !this.$auth.loading) ||
+        this.user.name == "ANONYMOUS"
+      ) {
         buttons.push({
           title: "Login",
           action: this.login,

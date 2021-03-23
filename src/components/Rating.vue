@@ -30,7 +30,7 @@
       <button
         v-if="isAuthenticated"
         @click="submitVote()"
-        id="voteSubmit"
+        id="vote-submit"
         class="noselect"
       >
         Vote
@@ -72,7 +72,7 @@ export default {
           this.voteSet = true;
           this.vote = v;
         } else if (this.vote == null) {
-          this.vote = 0;
+          this.vote = 5;
         }
         return this.vote;
       }
@@ -82,7 +82,7 @@ export default {
         (v) =>
           v.newssite_id == this.site.newssite_id &&
           v.category_id == this.category.category_id &&
-          v.voter_email == this.$auth.user.email
+          v.person_id == this.user.person_id
       )[0];
       if (
         this.vote <= this.category.range_max &&
@@ -97,7 +97,7 @@ export default {
             score: this.vote,
             newssite_id: this.site.newssite_id,
             category_id: this.category.category_id,
-            voter_email: this.$auth.user.email,
+            person_id: this.user.person_id,
           });
         }
         this.$store.commit("refreshData");
@@ -109,7 +109,7 @@ export default {
   },
   computed: {
     isAuthenticated() {
-      return this.$auth.isAuthenticated;
+      return this.user.name != "ANONYMOUS";
     },
     votes() {
       return this.$store.state.vote.filter(
@@ -119,7 +119,15 @@ export default {
       );
     },
     user() {
-      return this.$store.state.user;
+      if (!this.$auth.isAuthenticated) {
+        return { name: "ANONYMOUS" };
+      } else {
+        return (
+          this.$store.state.person.filter(
+            (p) => p.email == this.$auth.user.email
+          )[0] || { name: "ANONYMOUS" }
+        );
+      }
     },
     getUserVote() {
       let v;
@@ -128,7 +136,7 @@ export default {
           (v) =>
             (v.category_id == this.category.category_id &&
               v.newssite_id == this.site.newssite_id &&
-              v.voter_email == this.$auth.user.email) ||
+              v.person_id == this.user.person_id) ||
             ""
         )[0];
       } catch {
@@ -223,13 +231,22 @@ h2 {
 VOTING
 ==========
 */
-#voteSubmit {
+#vote-submit {
   margin: auto !important;
   display: block;
   padding: 5px;
   color: white;
   background-color: #5327a8;
+  box-shadow: 1px 3px 5px #000000aa;
+  width: 300px;
+  border-radius: 1000px;
+}
+#vote-submit:hover {
   box-shadow: 1px 3px 2px #000000aa;
+}
+#vote-submit:focus {
+  outline: none;
+  background-color: #865fd4;
 }
 #votedisplay {
   text-align: center;
