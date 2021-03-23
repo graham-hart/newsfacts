@@ -49,6 +49,7 @@ export default {
   color: #e1e1e1;
   cursor: pointer;
   margin: 0px 5px;
+  text-underline-offset: 5px;
 }
 .nav-elt:focus {
   text-decoration: underline;

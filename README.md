@@ -12,15 +12,13 @@ However, because the backend is not currently online, this will not work unless 
 
 ---
 ## TODO:
-- Fix Rating.vue where it finds votes by email -> get vote by person id
-- Search Filters (Bias, ETC)
 - Update Styling
+- Search Filters (Bias, ETC)
 - Admin Panel
 - Sanitize input
 - ### Pages to Add:
 	- About
 	- Home
-	- Login/Logout
 	- Criteria for Bias & Reliability
 ---
 ## Features:
