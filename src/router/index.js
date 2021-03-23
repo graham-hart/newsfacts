@@ -6,6 +6,7 @@ import SitePage from '@/views/SitePage.vue';
 import About from '@/views/About.vue';
 import Contact from '@/views/Contact.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
+import VotingCriteria from '@/views/VotingCriteria.vue';
 
 Vue.use(Router);
 
@@ -44,6 +45,11 @@ export default new Router({
 			path: "/contact",
 			name: "Contact",
 			component: Contact
+		},
+		{
+			path: "/criteria",
+			name: "VotingCriteria",
+			component: VotingCriteria,
 		},
 		{
 			path: "/*",

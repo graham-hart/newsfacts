@@ -9,7 +9,7 @@
       </div>
       <div id="body">
         <div id="ratings" class="flex-column">
-          <h2>Ratings</h2>
+          <h2 class="center">Ratings</h2>
           <div id="ratingContainer" v-if="!$vuetify.breakpoint.xs">
             <selector
               @changeSelection="changeRateSelection($event)"
@@ -23,6 +23,9 @@
                 :key="rateSelection"
               />
             </span>
+            <router-link id="criteria-link" to="/criteria"
+              >Criteria for Voting</router-link
+            >
           </div>
           <span id="ratingContainer" v-else>
             <rating
@@ -31,6 +34,9 @@
               :category="category"
               :site="site"
             />
+            <router-link id="criteria-link" to="/criteria"
+              >Criteria for Voting</router-link
+            >
           </span>
         </div>
       </div>
@@ -86,12 +92,12 @@ export default {
   max-width: 100%;
 }
 #body {
-  margin: 50px 50px;
-  justify-content: start;
+  margin-top: 50px;
+  justify-content: flex-start;
 }
 #head {
   padding-top: 20px;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   margin-left: 50px;
 }
@@ -106,7 +112,18 @@ a {
 }
 #ratingContainer {
   border: 5px solid #e1e1e1;
-  width: 100%;
+  background-color: white;
+  width: 60%;
+  min-width: 200px;
   margin: auto;
+}
+#criteria-link {
+  all: unset;
+  float: right;
+  margin: 20px;
+  cursor: pointer;
+}
+#criteria-link:hover {
+  text-decoration: underline;
 }
 </style>

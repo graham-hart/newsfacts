@@ -8,7 +8,7 @@
         class="noselect"
       />
       <router-view id="page" />
-      <refresh v-if="canRefresh" />
+      <refresh v-if="canRefresh && !$vuetify.breakpoint.xs" />
       <Footer v-if="!$vuetify.breakpoint.xs"></Footer>
     </v-main>
   </v-app>
@@ -18,6 +18,7 @@
 import Refresh from "@/components/Refresh";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
+import api from "@/scripts/api.js";
 export default {
   name: "App",
 
@@ -28,6 +29,22 @@ export default {
   },
   created() {
     this.$store.commit("refreshData");
+  },
+  methods: {
+    login() {
+      this.$auth.loginWithPopup().then(() => {
+        if (
+          !this.$store.state.person.filter(
+            (p) => p.email == this.$auth.user.email
+          ).length
+        )
+          console.log("POST NEW USER");
+        api.post(this.$store, "person", {
+          email: this.$auth.user.email,
+          name: this.$auth.user.name,
+        });
+      });
+    },
   },
   computed: {
     canRefresh() {
@@ -49,7 +66,10 @@ export default {
         { title: "Contact", action: "/contact" },
       ];
       if (!this.$auth.isAuthenticated && !this.$auth.loading) {
-        buttons.push({ title: "Login", action: this.$auth.loginWithPopup });
+        buttons.push({
+          title: "Login",
+          action: this.login,
+        });
       } else if (!this.$auth.loading) {
         buttons.push({ title: "Logout", action: this.$auth.logout });
       }
@@ -113,5 +133,8 @@ br {
   -moz-user-select: none; /* Old versions of Firefox */
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+.center {
+  text-align: center;
 }
 </style>

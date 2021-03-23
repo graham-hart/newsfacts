@@ -37,7 +37,7 @@ export default {
   height: var(--sel-height);
   display: flex;
   flex-direction: row;
-  justify-content: start;
+  justify-content: flex-start;
 }
 .item {
   height: var(--sel-height);

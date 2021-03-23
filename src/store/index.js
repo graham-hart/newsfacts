@@ -9,12 +9,14 @@ export default new Vuex.Store({
 		category: [],
 		newssite: [],
 		vote: [],
-		adminEmails: ["graham@harts.net", "24ghart@shcp.edu", "newsfacts.app@gmail.com"]
+		person: [],
+		adminEmails: ["graham@harts.net", "24ghart@shcp.edu", "newsfacts.app@gmail.com"],
+		loaded: false
 	},
 	mutations: {
 		refreshData(state) {
-			for (let table of ["category", "newssite", "vote"]) {
-				api.get(`${table}`).then(r => { state[table] = r.data; });
+			for (let table of ["category", "newssite", "vote", "person"]) {
+				api.get(`${table}`).then(r => { state[table] = r.data; state.loaded = true; });
 			}
 		},
 	},

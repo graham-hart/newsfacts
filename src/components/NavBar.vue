@@ -1,6 +1,6 @@
 <template>
   <div id="bar">
-    <v-toolbar id="navbar" app color="#5327a8" dark>
+    <v-toolbar id="navbar" color="#5327a8" dark>
       <router-link to="/" id="appname">{{ appname }}</router-link>
       <v-spacer></v-spacer>
       <span :key="item.title" v-for="item in items">
