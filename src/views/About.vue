@@ -6,6 +6,7 @@
 <script>
 export default {
   name: "About",
+  title: "About",
 };
 </script>
 <style scoped>

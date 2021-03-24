@@ -11,6 +11,7 @@
 <script>
 export default {
   name: "About",
+  title: "Contact",
   data() {
     return {
       body: "",

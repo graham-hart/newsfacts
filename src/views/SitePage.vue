@@ -54,6 +54,9 @@ import PageNotFound from "@/views/PageNotFound.vue";
 export default {
   components: { Rating, Selector, PageNotFound },
   name: "SitePage",
+  title() {
+    return `Sites | ${this.site.name}`;
+  },
   data() {
     return {
       rateSelection: 0,

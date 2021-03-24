@@ -24,6 +24,7 @@
 <script>
 export default {
   name: "Sites",
+  title: "Sites",
   components: {},
   data() {
     return { searchVal: "", shownSites: this.sites };

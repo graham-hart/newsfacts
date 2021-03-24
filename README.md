@@ -1,6 +1,8 @@
 # Newsfacts UI
 
 ## Known Bugs:
+	Navbar will occasionally freeze
+
 ---
 ## Description:
 This website allows users to search through a database of news sites and vote on them based off of Bias & Reliability. 
@@ -16,6 +18,8 @@ However, because the backend is not currently online, this will not work unless 
 - Search Filters (Bias, ETC)
 - Admin Panel
 - Sanitize input
+- Save sites
+- Share articles
 - ### Pages to Add:
 	- About
 	- Home

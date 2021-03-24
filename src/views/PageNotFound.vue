@@ -13,6 +13,7 @@
 <script>
 export default {
   name: "PageNotFound",
+  title: "404: Page Not Found",
 };
 </script>
 <style scoped>

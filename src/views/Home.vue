@@ -7,6 +7,7 @@
 <script>
 export default {
   name: "Home",
+  title: "Home",
   // data() {},
 };
 </script>
