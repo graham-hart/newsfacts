@@ -1,12 +1,7 @@
 <template>
   <v-app>
     <v-main id="app" style="flex-grow: 1">
-      <NavBar
-        :appname="`Newsfacts`"
-        :items="navBarButtons"
-        id="navbar"
-        class="noselect"
-      />
+      <NavBar :appname="`Newsfacts`" :items="navBarButtons" />
       <router-view id="page" />
       <refresh v-if="canRefresh && !$vuetify.breakpoint.xs" />
       <Footer v-if="!$vuetify.breakpoint.xs"></Footer>
@@ -88,6 +83,27 @@ export default {
 <style>
 /* 
 ==========
+GLOBAL CSS VARS
+==========
+*/
+:root {
+  --purple-1: rgb(83, 39, 168); /* MAIN PURPLE */
+  --purple-2: rgb(99, 32, 185); /* SECONDARY PURPLE */
+  --light-purple-1: rgb(134, 95, 212); /* LIGHT PURPLE (Button click etc)*/
+  --blue-1: rgb(131, 187, 253); /* MAIN LIGHT BLUE */
+  --blue-2: rgb(178, 199, 243); /* SECONDARY LIGHT BLUE */
+  --link-col: rgb(25, 118, 210); /* LINK COLOR */
+  --bg-col-1: rgb(245, 245, 245);
+  --bg-col-2: rgb(231, 231, 231);
+  --text-big-col: rgb(0, 0, 0);
+  --text-sm-col: rgb(46, 46, 46);
+  --button-col: rgb(82, 28, 190);
+  --button-col-hover: rgb(130, 96, 199);
+  --button-text-col: rgb(209, 200, 226);
+  --light-text-col: #e1e1e1;
+}
+/* 
+==========
 FOR THIS PAGE
 ==========
 */
@@ -97,7 +113,12 @@ html {
   /* overflow: overlay; */
   cursor: auto;
   width: 100%;
-  background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
+  /* background: linear-gradient(
+    160deg,
+    var(--bg-col-1) 55vh,
+    var(--bg-col-2) 30vh
+  ); */
+  background: var(--bg-col-2);
   height: auto;
   min-height: 100vh;
 }
@@ -108,6 +129,7 @@ html {
   overflow-y: auto;
   padding-bottom: 50px;
   height: auto;
+  margin-top: 64px;
 }
 #app {
   display: flex;
@@ -124,6 +146,7 @@ GLOBAL STYLING
   font-family: "Noto Sans SC";
   font-weight: 700;
   text-transform: capitalize;
+  color: var(--text-big-col);
 }
 ::-webkit-scrollbar {
   background-color: #fafafa11;

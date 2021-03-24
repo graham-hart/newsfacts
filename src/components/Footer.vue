@@ -30,13 +30,14 @@ export default {
   align-self: flex-end;
   margin-bottom: auto;
   padding: 20px 40px 20px 40px;
-  background-color: rgb(99, 32, 185);
+  background-color: var(--purple-2);
   column-count: 3;
   column-gap: 40px;
-  line-height: 1.2rem;
+  line-height: 1.4rem;
+  text-underline-offset: 1px;
 }
 .footer-link {
-  color: rgb(255, 255, 255);
+  color: var(--light-text-col);
   font-weight: 300;
   cursor: pointer;
 }

@@ -5,7 +5,9 @@
         <h1 class="site-title" :key="site.name">
           {{ site != null ? site.name : "ERROR: SITE NOT FOUND" }}
         </h1>
-        <a :href="site.url" target="_blank">Go To {{ site.name }} </a>
+        <a :href="site.url" target="_blank" id="site-url"
+          >Go To {{ site.name }}
+        </a>
       </div>
       <div id="body">
         <div id="ratings" class="flex-column">
@@ -80,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+#site-url {
+  color: var(--link-col);
+}
 .rate {
   width: 100%;
   margin-top: 20px;
@@ -100,6 +105,7 @@ export default {
   justify-content: flex-start;
   align-items: center;
   margin-left: 50px;
+  color: var(--text-sm-col);
 }
 .ratelabel {
   text-align: center;
@@ -112,16 +118,17 @@ a {
 }
 #ratingContainer {
   border: 5px solid #e1e1e1;
-  background-color: white;
   width: 60%;
   min-width: 200px;
   margin: auto;
+  background-color: var(--bg-col-1);
 }
 #criteria-link {
   all: unset;
   float: right;
   margin: 20px;
   cursor: pointer;
+  color: var(--link-col);
 }
 #criteria-link:hover {
   text-decoration: underline;

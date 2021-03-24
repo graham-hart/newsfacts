@@ -5,7 +5,7 @@
       <p>Sorry, we can't find the page you were looking for.</p>
       <p>
         If you believe this to be an error,
-        <router-link to="/contact">contact us</router-link>.
+        <router-link id="contact-link" to="/contact">contact us</router-link>.
       </p>
     </div>
   </div>
@@ -19,5 +19,14 @@ export default {
 .text {
   text-align: center;
   margin-top: 45vh;
+}
+h1 {
+  color: var(--text-big-col);
+}
+p {
+  color: var(--text-sm-col);
+}
+#contact-link {
+  color: var(--link-col);
 }
 </style>

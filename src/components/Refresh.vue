@@ -1,5 +1,5 @@
 <template>
-  <v-btn id="refresh" color="#330055" @click="refreshData">Refresh </v-btn>
+  <v-btn id="refresh" @click="refreshData">Refresh </v-btn>
 </template>
 <script>
 export default {
@@ -16,7 +16,9 @@ export default {
   position: absolute;
   right: 20px;
   top: 80px;
-  color: #fafafa;
+  color: var(--button-text-col);
+  background-color: var(--button-col);
+  font-weight: bold;
   font-family: monospace;
 }
 </style>

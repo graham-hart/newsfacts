@@ -211,9 +211,9 @@ FOR THIS COMPONENT
 */
 #rating {
   margin: 0px auto;
-  background-color: white;
   flex-grow: 1;
   padding: 20px;
+  background-color: var(--bg-col-1);
 }
 #chart {
   width: 80%;
@@ -225,6 +225,7 @@ h2 {
 .text {
   font-size: 1.2rem;
   text-align: center;
+  color: var(--text-sm-col);
 }
 /* 
 ==========
@@ -235,18 +236,19 @@ VOTING
   margin: auto !important;
   display: block;
   padding: 5px;
-  color: white;
-  background-color: #5327a8;
+  color: var(--button-text-col);
+  background-color: var(--button-col);
   box-shadow: 1px 3px 5px #000000aa;
   width: 300px;
   border-radius: 1000px;
 }
 #vote-submit:hover {
   box-shadow: 1px 3px 2px #000000aa;
+  background-color: var(--button-col-hover);
 }
 #vote-submit:focus {
   outline: none;
-  background-color: #865fd4;
+  background-color: var(--button-col-hover);
 }
 #votedisplay {
   text-align: center;
