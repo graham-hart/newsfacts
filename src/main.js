@@ -16,6 +16,7 @@ Vue.mixin(titleMixin);
 Vue.use(Auth0Plugin, {
 	domain,
 	clientId,
+	redirectUri: "http://localhost:8080/login-callback",
 	onRedirectCallback: appState => {
 		router.push(
 			appState && appState.targetUrl

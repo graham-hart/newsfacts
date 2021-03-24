@@ -7,6 +7,7 @@ import About from '@/views/About.vue';
 import Contact from '@/views/Contact.vue';
 import PageNotFound from '@/views/PageNotFound.vue';
 // import VotingCriteria from '@/views/VotingCriteria.vue';
+import LoginCallback from '@/views/LoginCallback.vue';
 
 Vue.use(Router);
 
@@ -51,6 +52,11 @@ export default new Router({
 		// 	name: "VotingCriteria",
 		// 	component: VotingCriteria,
 		// },
+		{
+			path: "/login-callback",
+			name: "LoginCallback",
+			component: LoginCallback,
+		},
 		{
 			path: "/*",
 			name: "404",

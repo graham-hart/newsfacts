@@ -13,7 +13,6 @@
 import Refresh from "@/components/Refresh";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import api from "@/scripts/api.js";
 export default {
   name: "App",
 
@@ -24,22 +23,6 @@ export default {
   },
   created() {
     this.$store.commit("refreshData");
-  },
-  methods: {
-    login() {
-      this.$auth.loginWithPopup().then(() => {
-        if (
-          !this.$store.state.person.filter(
-            (p) => p.email == this.$auth.user.email
-          ).length
-        )
-          console.log("POST NEW USER");
-        api.post(this.$store, "person", {
-          email: this.$auth.user.email,
-          name: this.$auth.user.name,
-        });
-      });
-    },
   },
   computed: {
     canRefresh() {
@@ -70,7 +53,7 @@ export default {
       ) {
         buttons.push({
           title: "Login",
-          action: this.login,
+          action: this.$auth.loginWithRedirect,
         });
       } else if (!this.$auth.loading) {
         buttons.push({ title: "Logout", action: this.$auth.logout });

@@ -242,7 +242,9 @@ VOTING
   color: var(--button-text-col);
   background-color: var(--button-col);
   box-shadow: 1px 3px 5px #000000aa;
-  width: 300px;
+  min-width: 100px;
+  max-width: 250px;
+  width: 40%;
   border-radius: 1000px;
 }
 #vote-submit:hover {
