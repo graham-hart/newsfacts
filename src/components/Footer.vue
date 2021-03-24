@@ -30,7 +30,7 @@ export default {
   align-self: flex-end;
   margin-bottom: auto;
   padding: 20px 40px 20px 40px;
-  background-color: var(--purple-2);
+  background-color: var(--main-2);
   column-count: 3;
   column-gap: 40px;
   line-height: 1.4rem;

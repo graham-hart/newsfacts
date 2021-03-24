@@ -82,6 +82,9 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  color: var(--text-big-col);
+}
 #site-url {
   color: var(--link-col);
 }
@@ -117,7 +120,7 @@ a {
   font-weight: 450 !important;
 }
 #ratingContainer {
-  border: 5px solid #e1e1e1;
+  border: 5px solid var(--border-col);
   width: 60%;
   min-width: 200px;
   margin: auto;
@@ -130,7 +133,8 @@ a {
   cursor: pointer;
   color: var(--link-col);
 }
-#criteria-link:hover {
+#criteria-link:hover,
+#criteria-link :focus {
   text-decoration: underline;
 }
 </style>

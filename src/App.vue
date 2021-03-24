@@ -87,20 +87,21 @@ GLOBAL CSS VARS
 ==========
 */
 :root {
-  --purple-1: rgb(83, 39, 168); /* MAIN PURPLE */
-  --purple-2: rgb(99, 32, 185); /* SECONDARY PURPLE */
-  --light-purple-1: rgb(134, 95, 212); /* LIGHT PURPLE (Button click etc)*/
-  --blue-1: rgb(131, 187, 253); /* MAIN LIGHT BLUE */
-  --blue-2: rgb(178, 199, 243); /* SECONDARY LIGHT BLUE */
-  --link-col: rgb(25, 118, 210); /* LINK COLOR */
-  --bg-col-1: rgb(245, 245, 245);
-  --bg-col-2: rgb(231, 231, 231);
-  --text-big-col: rgb(0, 0, 0);
-  --text-sm-col: rgb(46, 46, 46);
-  --button-col: rgb(82, 28, 190);
-  --button-col-hover: rgb(130, 96, 199);
-  --button-text-col: rgb(209, 200, 226);
-  --light-text-col: #e1e1e1;
+  --main-1: rgb(168, 39, 39); /* MAIN PURPLE */
+  --main-2: rgb(185, 32, 32); /* SECONDARY PURPLE */
+  --light-main-1: rgb(212, 95, 95); /* LIGHT PURPLE (Button click etc)*/
+  --second-1: rgb(253, 131, 131); /* MAIN LIGHT BLUE */
+  --second-2: rgb(243, 178, 178); /* SECONDARY LIGHT BLUE */
+  --link-col: rgb(210, 25, 25); /* LINK COLOR */
+  --bg-col-1: rgb(71, 71, 71);
+  --bg-col-2: rgb(41, 41, 41);
+  --text-big-col: rgb(240, 240, 240);
+  --text-sm-col: rgb(207, 207, 207);
+  --button-col: rgb(155, 23, 23);
+  --button-col-hover: rgb(248, 161, 161);
+  --button-text-col: rgb(247, 201, 201);
+  --light-text-col: rgb(225, 225, 225);
+  --border-col: rgba(177, 177, 177, 0);
 }
 /* 
 ==========

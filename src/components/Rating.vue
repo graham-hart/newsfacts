@@ -15,7 +15,7 @@
     </div>
 
     <span :key="setUserVote()">
-      <input
+      <v-slider
         type="range"
         id="vote"
         v-model="vote"
@@ -23,6 +23,7 @@
         :min="category.range_min"
         :max="category.range_max"
         @change="voteChanged()"
+        color="red"
         :disabled="!isAuthenticated"
       />
       <h2 id="votedisplay" v-if="isAuthenticated">{{ vote }}</h2>
@@ -217,10 +218,12 @@ FOR THIS COMPONENT
 }
 #chart {
   width: 80%;
+  margin-top: 50px;
 }
 h2 {
   font-weight: 800;
   text-align: center;
+  color: var(--text-big-col);
 }
 .text {
   font-size: 1.2rem;

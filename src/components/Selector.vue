@@ -33,7 +33,7 @@ export default {
 <style scoped>
 #selector {
   --sel-height: 50px !important;
-  background-color: var(--purple-2);
+  background-color: var(--main-2);
   height: var(--sel-height);
   display: flex;
   flex-direction: row;
@@ -53,6 +53,6 @@ export default {
   border-bottom: 3px solid var(--light-text-col);
 }
 .item.current {
-  background-color: var(--purple-1);
+  background-color: var(--main-1);
 }
 </style>

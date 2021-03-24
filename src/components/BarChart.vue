@@ -44,4 +44,7 @@ export default {
 * {
   margin: auto;
 }
+canvas {
+  background-color: white;
+}
 </style>

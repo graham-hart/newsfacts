@@ -54,7 +54,7 @@ export default {
 .site {
   width: var(--site-width);
   height: var(--site-height);
-  background-color: var(--blue-1);
+  background-color: var(--second-1);
   padding: 20px;
   box-shadow: 0px 5px 12px 0px rgba(0, 0, 0, 0.35);
   cursor: pointer;
@@ -65,7 +65,7 @@ export default {
 .site:hover,
 .site:focus {
   width: calc(var(--site-width) + var(--site-expand-change));
-  background-color: var(--blue-2);
+  background-color: var(--second-2);
   box-shadow: 0px 5px 12px -5px rgba(0, 0, 0, 0.76);
   outline: none;
 }

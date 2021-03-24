@@ -69,7 +69,7 @@ export default {
   display: flex;
 }
 #navbar {
-  background-color: var(--purple-1);
+  background-color: var(--main-1);
   height: 64px;
 }
 .nav-elt {
