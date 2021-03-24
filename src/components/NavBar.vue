@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <v-app-bar id="navbar" absolute color="#5327a8" dark>
+    <v-app-bar id="navbar" absolute dark>
       <router-link to="/" id="appname">{{ appname }}</router-link>
       <v-spacer></v-spacer>
       <v-menu v-if="$vuetify.breakpoint.smAndDown">
@@ -61,7 +61,7 @@ export default {
   font-family: "Noto Sans SC";
   text-transform: lowercase;
   text-decoration: none;
-  color: #fafafa;
+  color: var(--light-text-col);
   margin-bottom: 5px;
 }
 #nav-elts {
@@ -69,6 +69,7 @@ export default {
   display: flex;
 }
 #navbar {
+  background-color: var(--purple-1);
   height: 64px;
 }
 .nav-elt {
@@ -78,7 +79,7 @@ export default {
   text-transform: uppercase;
   letter-spacing: 0.02rem;
   font-size: 1.5rem;
-  color: #e1e1e1;
+  color: var(--light-text-col);
   cursor: pointer;
   margin: 0px 5px;
   text-underline-offset: 5px;

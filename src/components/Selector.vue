@@ -33,7 +33,7 @@ export default {
 <style scoped>
 #selector {
   --sel-height: 50px !important;
-  background-color: rgb(124, 15, 219);
+  background-color: var(--purple-2);
   height: var(--sel-height);
   display: flex;
   flex-direction: row;
@@ -45,15 +45,14 @@ export default {
   text-align: center;
   padding: 0px 20px;
   text-transform: uppercase;
-  color: white;
+  color: var(--light-text-col);
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
-  background-color: rgb(107, 14, 189);
 }
 .item.current,
 .item:hover {
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid var(--light-text-col);
 }
 .item.current {
-  background-color: rgb(94, 12, 165);
+  background-color: var(--purple-1);
 }
 </style>
