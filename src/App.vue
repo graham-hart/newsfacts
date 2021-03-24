@@ -1,12 +1,7 @@
 <template>
   <v-app>
     <v-main id="app" style="flex-grow: 1">
-      <NavBar
-        :appname="`Newsfacts`"
-        :items="navBarButtons"
-        id="navbar"
-        class="noselect"
-      />
+      <NavBar :appname="`Newsfacts`" :items="navBarButtons" />
       <router-view id="page" />
       <refresh v-if="canRefresh && !$vuetify.breakpoint.xs" />
       <Footer v-if="!$vuetify.breakpoint.xs"></Footer>
@@ -97,7 +92,7 @@ html {
   /* overflow: overlay; */
   cursor: auto;
   width: 100%;
-  background: linear-gradient(160deg, #f1f1f1 40%, #fafafa 40%);
+  background: linear-gradient(160deg, #f1f1f1 55vh, #fafafa 30vh);
   height: auto;
   min-height: 100vh;
 }
@@ -108,6 +103,7 @@ html {
   overflow-y: auto;
   padding-bottom: 50px;
   height: auto;
+  margin-top: 64px;
 }
 #app {
   display: flex;
