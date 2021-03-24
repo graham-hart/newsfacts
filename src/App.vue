@@ -87,19 +87,20 @@ GLOBAL CSS VARS
 ==========
 */
 :root {
-  --main-1: rgb(168, 39, 39); /* MAIN PURPLE */
-  --main-2: rgb(185, 32, 32); /* SECONDARY PURPLE */
-  --light-main-1: rgb(212, 95, 95); /* LIGHT PURPLE (Button click etc)*/
-  --second-1: rgb(253, 131, 131); /* MAIN LIGHT BLUE */
-  --second-2: rgb(243, 178, 178); /* SECONDARY LIGHT BLUE */
-  --link-col: rgb(210, 25, 25); /* LINK COLOR */
-  --bg-col-1: rgb(71, 71, 71);
-  --bg-col-2: rgb(41, 41, 41);
+  --main-1: rgb(88, 39, 168); /* MAIN1 */
+  --main-2: rgb(89, 44, 194); /* MAIN2 */
+  --light-main-1: rgb(95, 169, 212); /* LIGHT MAIN (Button click etc)*/
+  --second-1: rgb(131, 184, 253); /* SECONDARY1 */
+  --second-2: rgb(178, 222, 243); /* SECONDARY2 */
+  --link-col: rgb(25, 182, 210); /* LINK COLOR */
+  --bg-1: rgb(71, 71, 71);
+  /* --bg-2: linear-gradient(160deg, rgb(37, 37, 37) 60vh, rgb(21, 21, 21) 60vh); */
+  --bg-2: rgb(20, 20, 20);
   --text-big-col: rgb(240, 240, 240);
   --text-sm-col: rgb(207, 207, 207);
-  --button-col: rgb(155, 23, 23);
-  --button-col-hover: rgb(248, 161, 161);
-  --button-text-col: rgb(247, 201, 201);
+  --button-col: rgb(69, 23, 155);
+  --button-col-hover: rgb(170, 161, 248);
+  --button-text-col: rgb(204, 201, 247);
   --light-text-col: rgb(225, 225, 225);
   --border-col: rgba(177, 177, 177, 0);
 }
@@ -114,23 +115,16 @@ html {
   /* overflow: overlay; */
   cursor: auto;
   width: 100%;
-  /* background: linear-gradient(
-    160deg,
-    var(--bg-col-1) 55vh,
-    var(--bg-col-2) 30vh
-  ); */
-  background: var(--bg-col-2);
+  background: var(--bg-2);
   height: auto;
   min-height: 100vh;
 }
 #page {
   background: transparent;
-  /* flex-grow: 1; */
   min-height: 100vh;
   overflow-y: auto;
   padding-bottom: 50px;
   height: auto;
-  margin-top: 64px;
 }
 #app {
   display: flex;

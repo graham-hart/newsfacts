@@ -124,7 +124,7 @@ a {
   width: 60%;
   min-width: 200px;
   margin: auto;
-  background-color: var(--bg-col-1);
+  background-color: var(--bg-1);
 }
 #criteria-link {
   all: unset;

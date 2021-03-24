@@ -23,7 +23,7 @@
         :min="category.range_min"
         :max="category.range_max"
         @change="voteChanged()"
-        color="red"
+        color="blue"
         :disabled="!isAuthenticated"
       />
       <h2 id="votedisplay" v-if="isAuthenticated">{{ vote }}</h2>
