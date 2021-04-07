@@ -2,8 +2,8 @@ function getTitle(vm) {
 	const { title } = vm.$options;
 	if (title) {
 		return typeof title === 'function'
-			? `Newsfacts | ${title.call(vm)}`
-			: `Newsfacts | ${title}`;
+			? `${title.call(vm)} | Newsfacts`
+			: `${title} | Newsfacts`;
 	}
 }
 export default {

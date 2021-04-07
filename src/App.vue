@@ -3,23 +3,17 @@
     <v-main id="app" style="flex-grow: 1">
       <NavBar :appname="`Newsfacts`" :items="navBarButtons" />
       <router-view id="page" />
-      <refresh v-if="canRefresh && !$vuetify.breakpoint.xs" />
-      <Footer v-if="!$vuetify.breakpoint.xs"></Footer>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import Refresh from "@/components/Refresh";
 import NavBar from "@/components/NavBar";
-import Footer from "@/components/Footer";
 export default {
   name: "App",
 
   components: {
     NavBar,
-    Refresh,
-    Footer,
   },
   created() {
     this.$store.commit("refreshData");
@@ -43,7 +37,6 @@ export default {
     navBarButtons() {
       let buttons = [
         { title: "Home", action: "/" },
-        { title: "Sites", action: "/sites" },
         { title: "About", action: "/about" },
         { title: "Contact", action: "/contact" },
       ];
@@ -76,11 +69,11 @@ GLOBAL CSS VARS
   --second-1: rgb(131, 184, 253); /* SECONDARY1 */
   --second-2: rgb(178, 222, 243); /* SECONDARY2 */
   --link-col: rgb(25, 182, 210); /* LINK COLOR */
-  --bg-1: rgb(71, 71, 71);
+  --bg-1: rgb(226, 226, 226);
   /* --bg-2: linear-gradient(160deg, rgb(37, 37, 37) 60vh, rgb(21, 21, 21) 60vh); */
-  --bg-2: rgb(20, 20, 20);
-  --text-big-col: rgb(240, 240, 240);
-  --text-sm-col: rgb(207, 207, 207);
+  --bg-2: rgb(250, 250, 250);
+  --text-big-col: rgb(15, 15, 15);
+  --text-sm-col: rgb(48, 48, 48);
   --button-col: rgb(69, 23, 155);
   --button-col-hover: rgb(170, 161, 248);
   --button-text-col: rgb(204, 201, 247);

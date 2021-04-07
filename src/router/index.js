@@ -1,7 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from '@/views/Home.vue';
-import Sites from '@/views/Sites.vue';
 import SitePage from '@/views/SitePage.vue';
 import About from '@/views/About.vue';
 import Contact from '@/views/Contact.vue';
@@ -21,16 +20,10 @@ export default new Router({
 		}
 	},
 	routes: [
-
 		{
 			path: "/",
 			name: "Home",
 			component: Home
-		},
-		{
-			path: "/sites",
-			name: "Sites",
-			component: Sites
 		},
 		{
 			path: "/sites/:site",
