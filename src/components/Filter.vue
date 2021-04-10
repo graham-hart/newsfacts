@@ -30,8 +30,8 @@ export default {
     changed() {
       this.$emit("change", {
         name: this.category.name,
-        min: this.min,
-        max: this.max,
+        min: this.value[0],
+        max: this.value[1],
       });
     },
   },

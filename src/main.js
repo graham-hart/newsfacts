@@ -9,10 +9,12 @@ import store from './store';
 import { Auth0Plugin } from "./auth";
 import { domain, clientId } from "../auth_config.json";
 import titleMixin from "@/mixins/titleMixin.js";
+import VueCompositionAPI from "@vue/composition-api";
 Vue.config.productionTip = false;
 
 axios.defaults.baseURL = "http://localhost:3000";
 Vue.mixin(titleMixin);
+Vue.use(VueCompositionAPI);
 Vue.use(Auth0Plugin, {
 	domain,
 	clientId,

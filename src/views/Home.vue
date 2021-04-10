@@ -4,16 +4,21 @@
       <input
         type="text"
         v-model="searchVal"
-        @click="$router.push({ name: 'Home' })"
         id="search-input"
         autocomplete="off"
         placeholder="Search..."
       />
     </div>
     <div id="wrapper">
-      <div id="filter-container" v-if="!$vuetify.breakpoint.xs">
+      <div id="filters-container" v-if="!$vuetify.breakpoint.xs">
         <div id="filters">
-          <!-- <div v-for="category in categories" :key="category.name"></div> -->
+          <sitefilter
+            class="noselect"
+            v-for="category in categories"
+            :key="category.name"
+            :category="category"
+            @change="updateFilters"
+          />
         </div>
       </div>
       <div class="sites-section">
@@ -23,7 +28,7 @@
             :key="site.name"
             tag="button"
             :to="`/sites/${site.route}`"
-            class="site"
+            class="site noselect"
             ><h1>
               {{ site.name }}
             </h1></router-link
@@ -38,20 +43,61 @@
 </template>
 
 <script>
+import sitefilter from "@/components/Filter";
 export default {
   name: "Sites",
   title: "Home",
-  components: {},
+  components: { sitefilter },
   data() {
-    return { searchVal: "", shownSites: this.sites };
+    return {
+      searchVal: "",
+      credFilter: {},
+      biasFilter: {},
+    };
+  },
+  methods: {
+    updateFilters(filter) {
+      this[filter.name.toLowerCase() + "Filter"] = {
+        min: filter.min,
+        max: filter.max,
+      };
+    },
+    avgVotesForSite(s, cat) {
+      let votes = this.votes.filter(
+        (v) =>
+          v.newssite_id == s.newssite_id && v.category_id == cat.category_id
+      );
+      let count = votes.length;
+      if (count > 0) {
+        let sum = votes.reduce((acc, v) => acc + parseInt(v.score), 0);
+        return sum / count;
+      } else return null;
+    },
   },
   computed: {
+    // Does not update when filters update
     searchedSites() {
-      return this.sites.filter(
-        (s) =>
+      const searched = this.sites.filter((s) => {
+        for (let cat of this.categories) {
+          if (this[cat.name.toLowerCase() + "Filter"]) {
+            let avg = this.avgVotesForSite(s, cat);
+            if (avg != null) {
+              console.log(avg < this[cat.name.toLowerCase() + "Filter"].min);
+              if (
+                avg < this[cat.name.toLowerCase() + "Filter"].min ||
+                avg > this[cat.name.toLowerCase() + "Filter"].max
+              ) {
+                return false;
+              }
+            }
+          }
+        }
+        return (
           s.name.toLowerCase().includes(this.searchVal.toLowerCase()) ||
           s.route.toLowerCase().includes(this.searchVal.toLowerCase())
-      );
+        );
+      });
+      return searched;
     },
     sites() {
       return this.$store.state.newssite;
@@ -73,17 +119,9 @@ export default {
 * {
   overflow-y: visible;
 }
-@media only screen and (max-width: 768px) {
-  * {
-    --column-padding: 20px;
-  }
-}
-@media only screen and (min-width: 769px) {
-  * {
-    --column-padding: 50px;
-  }
-}
-/* Vuetify xs breakpoint */
+/*=============
+  Mobile View
+=============*/
 @media only screen and (max-width: 599px) {
   .site {
     height: 100px;
@@ -100,7 +138,27 @@ export default {
     text-align: center;
   }
 }
+/*=============
+  Large View
+=============*/
 @media only screen and (min-width: 600px) {
+  /*=============
+    Filters
+  =============*/
+  #filters-container {
+    padding: 20px;
+    height: 700px;
+    border-right: 3px solid #1f1f1f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #filters {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--button-col-hover);
+    min-height: 80%;
+  }
   .site::before {
     content: "";
     display: block;
@@ -150,9 +208,16 @@ export default {
     margin: 50px auto 0px;
     width: 80%;
     max-width: 1200px;
-    grid-template-columns: 30% 80%;
+    grid-template-columns: 35% 65%;
   }
 }
+#no-sites {
+  color: black;
+  display: flex !important;
+}
+/*=============
+  Search Bar
+=============*/
 #topbar {
   background-color: rgba(57, 29, 161, 0.2);
   justify-content: center;
@@ -179,20 +244,17 @@ export default {
 ::-ms-input-placeholder {
   font-style: italic;
 }
-#filter-container {
-  padding: 30px;
-  height: 700px;
-  border-right: 3px solid #1f1f1f;
+/*=============
+  Tweaks for padding
+=============*/
+@media only screen and (max-width: 768px) {
+  * {
+    --column-padding: 20px;
+  }
 }
-#filters {
-  width: 100%;
-  padding: var(--column-padding);
-  background-color: var(--button-col-hover);
-  height: 80%;
-  margin-top: 50px;
-}
-#no-sites {
-  color: black;
-  display: flex !important;
+@media only screen and (min-width: 769px) {
+  * {
+    --column-padding: 50px;
+  }
 }
 </style>

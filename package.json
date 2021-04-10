@@ -9,6 +9,8 @@
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.13.6",
+    "@vue/composition-api": "^1.0.0-rc.6",
+    "@vueform/slider": "^1.0.5",
     "chart.js": "^2.9.4",
     "core-js": "^3.6.5",
     "vue": "^2.6.12",
