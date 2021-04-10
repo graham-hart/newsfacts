@@ -16,7 +16,6 @@
 
     <span :key="setUserVote()">
       <v-slider
-        type="range"
         id="vote"
         v-model="vote"
         step="1"

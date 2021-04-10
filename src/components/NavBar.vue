@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <v-app-bar id="navbar" dark>
-      <router-link to="/" id="appname">{{ appname }}</router-link>
+      <router-link to="/" id="appname" class="noselect">{{
+        appname
+      }}</router-link>
       <v-spacer></v-spacer>
       <v-menu v-if="$vuetify.breakpoint.smAndDown">
         <template v-slot:activator="{ on, attrs }">
@@ -36,7 +38,7 @@
           >
             {{ item.title.toUpperCase() }}
           </router-link>
-          <button v-else class="nav-elt" @click="item.action()">
+          <button v-else class="nav-elt noselect" @click="item.action()">
             {{ item.title.toUpperCase() }}
           </button>
         </span>
