@@ -5,7 +5,7 @@
         appname
       }}</router-link>
       <v-spacer></v-spacer>
-      <v-menu v-if="$vuetify.breakpoint.smAndDown">
+      <v-menu v-if="$vuetify.breakpoint.xs">
         <template v-slot:activator="{ on, attrs }">
           <v-app-bar-nav-icon id="menu-button" v-bind="attrs" v-on="on" />
         </template>

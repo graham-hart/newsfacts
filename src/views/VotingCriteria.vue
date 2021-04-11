@@ -12,7 +12,7 @@
       <hr />
       <p>
         Credibility is ranked 0 - 5, where 0 is completely untrustworthy and 5
-        is incredibly untrustworthy.
+        is incredibly trustworthy.
       </p>
     </div>
   </div>
@@ -37,7 +37,6 @@ hr {
 }
 p {
   font-size: 1.2rem;
-  width: 72ch;
   margin: 0px auto 100px;
   font-family: "Roboto", "Times";
 }

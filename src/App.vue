@@ -38,7 +38,6 @@ export default {
       let buttons = [
         { title: "Home", action: "/" },
         { title: "About", action: "/about" },
-        { title: "Contact", action: "/contact" },
       ];
       if (
         (!this.$auth.isAuthenticated && !this.$auth.loading) ||

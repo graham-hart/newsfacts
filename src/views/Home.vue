@@ -10,7 +10,7 @@
       />
     </div>
     <div id="wrapper">
-      <div id="filters-container" v-if="!$vuetify.breakpoint.xs">
+      <div id="filters-container" v-if="!$vuetify.breakpoint.smAndDown">
         <div id="filters">
           <sitefilter
             class="noselect"
@@ -19,6 +19,9 @@
             :category="category"
             @change="updateFilters"
           />
+          <router-link id="criteria-link" to="/criteria"
+            >What do these mean?</router-link
+          >
         </div>
       </div>
       <div class="sites-section">
@@ -51,7 +54,7 @@ export default {
   data() {
     return {
       searchVal: "",
-      credFilter: {},
+      credibilityFilter: {},
       biasFilter: {},
     };
   },
@@ -82,7 +85,6 @@ export default {
           if (this[cat.name.toLowerCase() + "Filter"]) {
             let avg = this.avgVotesForSite(s, cat);
             if (avg != null) {
-              console.log(avg < this[cat.name.toLowerCase() + "Filter"].min);
               if (
                 avg < this[cat.name.toLowerCase() + "Filter"].min ||
                 avg > this[cat.name.toLowerCase() + "Filter"].max
@@ -122,10 +124,10 @@ export default {
 /*=============
   Mobile View
 =============*/
-@media only screen and (max-width: 599px) {
+@media only screen and (max-width: 959px) {
   .site {
     height: 100px;
-    background-color: purple;
+    background-color: var(--main-1);
     width: 100%;
     margin: 20px 0px;
   }
@@ -141,7 +143,7 @@ export default {
 /*=============
   Large View
 =============*/
-@media only screen and (min-width: 600px) {
+@media only screen and (min-width: 960px) {
   /*=============
     Filters
   =============*/
@@ -159,6 +161,17 @@ export default {
     background-color: var(--button-col-hover);
     min-height: 80%;
   }
+  #criteria-link {
+    all: unset;
+    float: right;
+    margin: 20px;
+    cursor: pointer;
+    color: var(--main-1);
+  }
+  #criteria-link:hover,
+  #criteria-link :focus {
+    text-decoration: underline;
+  }
   .site::before {
     content: "";
     display: block;
@@ -168,10 +181,10 @@ export default {
   .site {
     background-color: var(--main-1);
     color: var(--light-text-col);
-    font-size: 0.78rem;
+    font-size: 0.7rem;
     text-align: center;
     width: 100%;
-    padding: 5px;
+    padding: 0px 5px;
     /* min-height: 200px; */
     min-height: 120px;
     display: flex;
