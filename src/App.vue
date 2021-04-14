@@ -62,21 +62,21 @@ GLOBAL CSS VARS
 ==========
 */
 :root {
-  --main-1: rgb(88, 39, 168); /* MAIN1 */
+  --main-1: rgb(122, 64, 214); /* MAIN1 */
   --main-2: rgb(89, 44, 194); /* MAIN2 */
   --light-main-1: rgb(95, 169, 212); /* LIGHT MAIN (Button click etc)*/
   --second-1: rgb(131, 184, 253); /* SECONDARY1 */
   --second-2: rgb(178, 222, 243); /* SECONDARY2 */
   --link-col: rgb(25, 182, 210); /* LINK COLOR */
-  --bg-1: rgb(226, 226, 226);
-  /* --bg-2: linear-gradient(160deg, rgb(37, 37, 37) 60vh, rgb(21, 21, 21) 60vh); */
-  --bg-2: rgb(250, 250, 250);
-  --text-big-col: rgb(15, 15, 15);
-  --text-sm-col: rgb(48, 48, 48);
+  --bg-1: rgb(27, 27, 27);
+  --bg-2: linear-gradient(160deg, rgb(37, 37, 37) 60vh, rgb(21, 21, 21) 60vh);
+  --text-big-col: rgb(235, 235, 235);
+  --text-sm-col: rgb(214, 214, 214);
   --button-col: rgb(69, 23, 155);
   --button-col-hover: rgb(170, 161, 248);
   --button-text-col: rgb(204, 201, 247);
   --light-text-col: rgb(225, 225, 225);
+  --dark-text-col: rgb(26, 26, 26);
   --border-col: rgba(177, 177, 177, 0);
 }
 /* 

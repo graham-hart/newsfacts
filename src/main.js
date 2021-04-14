@@ -16,20 +16,20 @@ axios.defaults.baseURL = "http://localhost:3000";
 Vue.mixin(titleMixin);
 Vue.use(VueCompositionAPI);
 Vue.use(Auth0Plugin, {
-	domain,
-	clientId,
-	redirectUri: "http://localhost:8080/login-callback",
-	onRedirectCallback: appState => {
-		router.push(
-			appState && appState.targetUrl
-				? appState.targetUrl
-				: window.location.pathname
-		);
-	}
+    domain,
+    clientId,
+    redirectUri: "http://localhost:8080/login-callback",
+    onRedirectCallback: appState => {
+        router.push(
+            appState && appState.targetUrl ?
+            appState.targetUrl :
+            window.location.pathname
+        );
+    }
 });
 new Vue({
-	vuetify,
-	router,
-	store,
-	render: h => h(App)
+    vuetify,
+    router,
+    store,
+    render: h => h(App)
 }).$mount('#app');

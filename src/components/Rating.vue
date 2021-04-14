@@ -187,7 +187,7 @@ export default {
           {
             label: "Number of votes",
             data: this.votesByScore,
-            backgroundColor: "#5332a8bb",
+            backgroundColor: "#5332a8ee",
             hoverBackgroundColor: "#5332a8",
           },
         ],

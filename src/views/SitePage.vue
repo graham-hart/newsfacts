@@ -123,7 +123,7 @@ a {
   font-weight: 450 !important;
 }
 #ratingContainer {
-  border: 5px solid var(--border-col);
+  border: 2px solid var(--border-col);
   width: 60%;
   min-width: 200px;
   margin: auto;
@@ -139,5 +139,8 @@ a {
 #criteria-link:hover,
 #criteria-link :focus {
   text-decoration: underline;
+}
+.site-title {
+  color: var(--text-big-col);
 }
 </style>

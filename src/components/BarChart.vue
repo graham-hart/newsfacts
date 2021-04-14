@@ -24,7 +24,24 @@ export default {
               ticks: {
                 beginAtZero: true,
                 stepSize: 1,
+                fontColor: "#f1f1f1",
+                color: "#f1f1f1",
               },
+              gridLines: {
+                // display: false,
+                color: "gray",
+              },
+            },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                fontColor: "#f1f1f1",
+              },
+              gridLines: {
+                color: "gray",
+              },
+              barPercentage: 1.25,
             },
           ],
         },
@@ -44,7 +61,8 @@ export default {
 * {
   margin: auto;
 }
-canvas {
+/* canvas {
+
   background-color: white;
-}
+} */
 </style>

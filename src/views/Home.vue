@@ -12,6 +12,7 @@
     <div id="wrapper">
       <div id="filters-container" v-if="!$vuetify.breakpoint.smAndDown">
         <div id="filters">
+          <h1>Filters</h1>
           <sitefilter
             class="noselect"
             v-for="category in categories"
@@ -150,7 +151,7 @@ export default {
   #filters-container {
     padding: 20px;
     height: 700px;
-    border-right: 3px solid #1f1f1f;
+    border-right: 3px solid #cecece;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -160,6 +161,9 @@ export default {
     padding: 15px;
     background-color: var(--button-col-hover);
     min-height: 80%;
+  }
+  #filters > h1 {
+    color: #f1f1f1;
   }
   #criteria-link {
     all: unset;
@@ -198,7 +202,7 @@ export default {
   }
   .site:hover,
   :focus {
-    background-color: rgba(222, 222, 222, 1);
+    background-color: var(--button-col-hover);
     border: 1px solid rgba(0, 0, 0, 0.8);
     color: var(--text-big-col);
     transform: scale(1.04);
@@ -219,9 +223,9 @@ export default {
   #wrapper {
     display: grid;
     margin: 50px auto 0px;
-    width: 80%;
-    max-width: 1200px;
-    grid-template-columns: 35% 65%;
+    width: 90%;
+    /* max-width: 00px; */
+    grid-template-columns: 25% 75%;
   }
 }
 #no-sites {
@@ -260,14 +264,14 @@ export default {
 /*=============
   Tweaks for padding
 =============*/
-@media only screen and (max-width: 768px) {
+@media only screen and (max-width: 1294px) {
   * {
-    --column-padding: 20px;
+    --column-padding: 40px;
   }
 }
-@media only screen and (min-width: 769px) {
+@media only screen and (min-width: 1295px) {
   * {
-    --column-padding: 50px;
+    --column-padding: 90px;
   }
 }
 </style>
