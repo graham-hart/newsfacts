@@ -253,6 +253,7 @@ export default {
   text-align: center;
   font-family: Roboto;
   font-size: 1.2rem;
+  color: #333;
 }
 ::placeholder {
   font-style: italic;

@@ -30,14 +30,16 @@ export default {
 }
 h1 {
   text-align: center;
+  color: var(--dark-text-col);
 }
 hr {
   margin: 20px auto;
-  border: 2px solid #ddd;
+  border: 2px solid #ccc6;
 }
 p {
   font-size: 1.2rem;
   margin: 0px auto 100px;
+  color: var(--light-text-col);
   font-family: "Roboto", "Times";
 }
 </style>

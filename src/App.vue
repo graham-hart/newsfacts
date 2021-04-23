@@ -76,7 +76,7 @@ GLOBAL CSS VARS
   --button-col-hover: rgb(170, 161, 248);
   --button-text-col: rgb(204, 201, 247);
   --light-text-col: rgb(225, 225, 225);
-  --dark-text-col: rgb(26, 26, 26);
+  --dark-text-col: rgb(133, 133, 133);
   --border-col: rgba(177, 177, 177, 0);
 }
 /* 
