@@ -8,6 +8,7 @@
         :max="category.range_max"
         @change="changed()"
         color="blue"
+        id="filter"
       />
     </fieldset>
   </div>
@@ -50,11 +51,10 @@ legend {
 }
 #filter {
   margin: 20px 0px;
-  padding: 10px;
-  min-height: 200px;
+  width: 100%;
 }
 legend {
-  padding: 0px 20px;
+  padding: 0px 5px;
   color: white;
   font-size: 1.5rem;
   text-underline-offset: 2px;
@@ -62,7 +62,6 @@ legend {
 fieldset {
   border: 3px solid white;
   padding: 20px;
-}
-#slider {
+  height: 150px;
 }
 </style>

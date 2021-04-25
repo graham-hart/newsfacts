@@ -158,7 +158,7 @@ export default {
   }
   #filters {
     width: 100%;
-    padding: 15px;
+    padding: 10px;
     background-color: var(--button-col-hover);
     min-height: 80%;
   }
