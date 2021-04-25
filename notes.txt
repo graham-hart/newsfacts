@@ -1,0 +1,1 @@
+ENTER PSQL SHELL: docker exec -i newsfacts_db_1 psql -U newsfacts 
