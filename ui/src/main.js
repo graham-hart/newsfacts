@@ -12,18 +12,18 @@ import titleMixin from "@/mixins/titleMixin.js";
 import VueCompositionAPI from "@vue/composition-api";
 Vue.config.productionTip = false;
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "http://newsfacts.us:3000";
 Vue.mixin(titleMixin);
 Vue.use(VueCompositionAPI);
 Vue.use(Auth0Plugin, {
     domain,
     clientId,
-    redirectUri: "http://localhost:8080/login-callback",
+    redirectUri: "http://newsfacts.us/login-callback",
     onRedirectCallback: appState => {
         router.push(
             appState && appState.targetUrl ?
-            appState.targetUrl :
-            window.location.pathname
+                appState.targetUrl :
+                window.location.pathname
         );
     }
 });

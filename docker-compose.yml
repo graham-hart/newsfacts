@@ -6,8 +6,10 @@ services:
             context: ./ui
             dockerfile: Dockerfile
         ports:
-            - "8080:8080"
+            - "80:80"
+            - "443:443"
         volumes:
+            - ./etc/certs:/etc/certs
             - ./ui:/usr/src/app/newsfacts_ui
             - /usr/src/app/newsfacts_ui/node_modules
         depends_on:
@@ -20,8 +22,8 @@ services:
         volumes:
             - "pgdata:/var/lib/postgresql/data"
     postgrest:
+        restart: always
         image: postgrest/postgrest
-        # network_mode: host
         ports:
             - "3000:3000"
         environment:

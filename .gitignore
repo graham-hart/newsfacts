@@ -17,3 +17,4 @@ sql/clear-data.sql
 yarn-debug.log*
 yarn-error.log*
 .env
+*/certs
