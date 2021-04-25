@@ -12,13 +12,13 @@ import titleMixin from "@/mixins/titleMixin.js";
 import VueCompositionAPI from "@vue/composition-api";
 Vue.config.productionTip = false;
 
-axios.defaults.baseURL = "http://newsfacts.us:3000";
+axios.defaults.baseURL = "https://newsfacts.us/api";
 Vue.mixin(titleMixin);
 Vue.use(VueCompositionAPI);
 Vue.use(Auth0Plugin, {
     domain,
     clientId,
-    redirectUri: "http://newsfacts.us/login-callback",
+    redirectUri: "https://newsfacts.us/login-callback",
     onRedirectCallback: appState => {
         router.push(
             appState && appState.targetUrl ?

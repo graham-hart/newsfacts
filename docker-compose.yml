@@ -1,13 +1,21 @@
 version: '3.7'
 
 services:
+    nginx:
+        image: nginx:latest
+        volumes:
+            - ./etc/certs:/etc/certs
+            - ./etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+        ports:
+            - "443:443"
+            - "80:80"
+        depends_on: 
+            - postgrest
+            - vue-ui
     vue-ui:
         build:
             context: ./ui
             dockerfile: Dockerfile
-        ports:
-            - "80:80"
-            - "443:443"
         volumes:
             - ./etc/certs:/etc/certs
             - ./ui:/usr/src/app/newsfacts_ui
