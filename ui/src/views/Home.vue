@@ -20,7 +20,10 @@
             :category="category"
             @change="updateFilters"
           />
-          <router-link id="criteria-link" to="/criteria"
+          <router-link
+            id="criteria-link"
+            to="/criteria"
+            v-if="categories.length > 0"
             >What do these mean?</router-link
           >
         </div>
@@ -158,9 +161,13 @@ export default {
   }
   #filters {
     width: 100%;
-    padding: 10px;
+    padding: 20px;
     background-color: var(--button-col-hover);
-    min-height: 80%;
+  }
+  @media only screen and (min-width: 960px) and (max-width: 1000px) {
+    #filters {
+      padding: 10px;
+    }
   }
   #filters > h1 {
     color: #f1f1f1;
