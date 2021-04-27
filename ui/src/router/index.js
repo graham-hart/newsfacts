@@ -19,34 +19,34 @@ export default new Router({
         }
     },
     routes: [{
-            path: "/",
-            name: "Home",
-            component: Home
-        },
-        {
-            path: "/sites/:site",
-            name: "Site",
-            component: SitePage
-        },
-        {
-            path: "/about",
-            name: "About",
-            component: About
-        },
-        {
-            path: "/criteria",
-            name: "VotingCriteria",
-            component: VotingCriteria,
-        },
-        {
-            path: "/login-callback",
-            name: "LoginCallback",
-            component: LoginCallback,
-        },
-        {
-            path: "/*",
-            name: "404",
-            component: PageNotFound,
-        }
+        path: "/",
+        name: "Home",
+        component: Home
+    },
+    {
+        path: "/:site",
+        name: "Site",
+        component: SitePage
+    },
+    {
+        path: "/about",
+        name: "About",
+        component: About
+    },
+    {
+        path: "/criteria",
+        name: "VotingCriteria",
+        component: VotingCriteria,
+    },
+    {
+        path: "/login-callback",
+        name: "LoginCallback",
+        component: LoginCallback,
+    },
+    {
+        path: "/*",
+        name: "404",
+        component: PageNotFound,
+    }
     ]
 });

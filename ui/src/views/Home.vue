@@ -31,7 +31,7 @@
             v-for="site in searchedSites"
             :key="site.name"
             tag="button"
-            :to="`/sites/${site.route}`"
+            :to="`/${site.route}`"
             class="site noselect"
             ><h1>
               {{ site.name }}

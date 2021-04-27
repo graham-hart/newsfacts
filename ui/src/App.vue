@@ -117,6 +117,7 @@ GLOBAL STYLING
   font-weight: 700;
   text-transform: capitalize;
   color: var(--text-big-col);
+  margin-top: 10px;
 }
 ::-webkit-scrollbar {
   background-color: #fafafa11;
